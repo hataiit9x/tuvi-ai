@@ -1,6 +1,5 @@
 # Tử Vi AI - Luận Giải Số Mệnh & Phong Thủy
 
-![Tu Vi AI Banner](docs/images/banner.png)
 
 **Tử Vi AI** là ứng dụng web hiện đại kết hợp tinh hoa **Tử Vi Đẩu Số** truyền thống với sức mạnh của **Trí tuệ nhân tạo (AI)**. Dự án nhằm mang đến những luận giải sâu sắc, cá nhân hóa và dễ hiểu về vận mệnh, phong thủy cho người sử dụng.
 
