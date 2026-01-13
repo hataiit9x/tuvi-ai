@@ -1,0 +1,1 @@
+ALTER TABLE `tuvi_cache` ADD `palaceAnalyses` json;
