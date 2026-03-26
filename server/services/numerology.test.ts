@@ -8,6 +8,10 @@ import {
   calculateBirthDayNumber,
   generateBirthChart,
   calculateNumerology,
+  calculatePersonalYear,
+  calculateLifePathCycles,
+  calculatePinnacles,
+  calculateChallenges,
 } from "./numerology";
 
 describe("Numerology Service", () => {
@@ -111,7 +115,7 @@ describe("Numerology Service", () => {
       // 1990-05-15 has digits: 1,9,9,0,0,5,1,5
       // 1 appears 2 times, 5 appears 2 times, 9 appears 2 times, 0 is not counted
       const chart = generateBirthChart("1990-05-15");
-      
+
       // Chart layout:
       // [3,6,9]
       // [2,5,8]
@@ -126,7 +130,7 @@ describe("Numerology Service", () => {
   describe("calculateNumerology", () => {
     it("returns complete numerology result", () => {
       const result = calculateNumerology({ fullName: "Nguyen Van A", birthDate: "1990-05-15" });
-      
+
       expect(result).toHaveProperty("lifePathNumber");
       expect(result).toHaveProperty("soulNumber");
       expect(result).toHaveProperty("personalityNumber");
@@ -143,11 +147,57 @@ describe("Numerology Service", () => {
 
     it("handles Vietnamese names correctly", () => {
       const result = calculateNumerology({ fullName: "Nguyễn Văn Ân", birthDate: "1990-05-15" });
-      
+
       expect(result.lifePathNumber).toBeGreaterThanOrEqual(1);
       expect(result.soulNumber).toBeGreaterThanOrEqual(1);
       expect(result.personalityNumber).toBeGreaterThanOrEqual(1);
       expect(result.destinyNumber).toBeGreaterThanOrEqual(1);
+    });
+  });
+
+  describe("calculatePersonalYear", () => {
+    it("calculates personal year correctly", () => {
+      // 15/05, Year 2026
+      // 15 -> 6, 05 -> 5, 2026 -> 1
+      // 6 + 5 + 1 = 12 -> 3
+      expect(calculatePersonalYear("1990-05-15", 2026)).toBe(3);
+    });
+  });
+
+  describe("calculateLifePathCycles", () => {
+    it("calculates life path cycles correctly", () => {
+      // 1990-05-15
+      // Cycle 1: Month = 5
+      // Cycle 2: Day = 1+5 = 6
+      // Cycle 3: Year = 1+9+9+0 = 19 -> 1
+      const cycles = calculateLifePathCycles("1990-05-15");
+      expect(cycles.cycle1).toBe(5);
+      expect(cycles.cycle2).toBe(6);
+      expect(cycles.cycle3).toBe(1);
+    });
+  });
+
+  describe("calculatePinnacles", () => {
+    it("calculates pinnacles correctly", () => {
+      // 1990-05-15 | Month: 5, Day: 6, Year: 1
+      // P1 = M + D = 5 + 6 = 11
+      // P2 = D + Y = 6 + 1 = 7
+      // P3 = P1 + P2 = 11 + 7 = 18 -> 9
+      // P4 = M + Y = 5 + 1 = 6
+      const pinnacles = calculatePinnacles("1990-05-15");
+      expect(pinnacles).toEqual([11, 7, 9, 6]);
+    });
+  });
+
+  describe("calculateChallenges", () => {
+    it("calculates challenges correctly", () => {
+      // 1990-05-15 | Month: 5, Day: 6, Year: 1
+      // C1 = |M - D| = |5 - 6| = 1
+      // C2 = |D - Y| = |6 - 1| = 5
+      // C3 = |C1 - C2| = |1 - 5| = 4
+      // C4 = |M - Y| = |5 - 1| = 4
+      const challenges = calculateChallenges("1990-05-15");
+      expect(challenges).toEqual([1, 5, 4, 4]);
     });
   });
 });

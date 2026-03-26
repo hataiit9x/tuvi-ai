@@ -10,7 +10,8 @@ import { eq, desc, and } from "drizzle-orm";
 
 // Import services
 import { generateTuviChart, getTuviAnalysisPrompt, getPalaceAnalysisPrompt } from "./services/tuvi";
-import { calculateNumerology, getNumerologyAnalysisPrompt, NUMBER_MEANINGS } from "./services/numerology";
+import { calculateNumerology, getNumerologyAnalysisPrompt } from "./services/numerology";
+import { NUMBER_MEANINGS } from "@shared/types";
 import {
   getZodiacFromYear,
   getElementFromYear,
@@ -464,15 +465,13 @@ export const appRouter = router({
 
           if (cached.length > 0) {
             console.log(`🎯 Cache HIT for numerology: ${input.fullName} ${input.birthDate}`);
+
+            // Re-calculate numbers to ensure we have all latest fields (cycles, forecasts, etc.)
+            // The cache primarily saves us the expensive AI call
+            const result = calculateNumerology(input);
+
             return {
-              result: {
-                lifePathNumber: cached[0].lifePathNumber,
-                soulNumber: cached[0].soulNumber,
-                personalityNumber: cached[0].personalityNumber,
-                destinyNumber: cached[0].destinyNumber,
-                birthDayNumber: cached[0].birthDayNumber,
-                birthChart: cached[0].birthChart as any,
-              },
+              result,
               analysis: cached[0].aiAnalysis,
               meanings: NUMBER_MEANINGS,
               cached: true,
@@ -576,6 +575,69 @@ export const appRouter = router({
 
     // Get number meanings
     meanings: publicProcedure.query(() => NUMBER_MEANINGS),
+
+    // Chat with AI about numerology results
+    chat: publicProcedure
+      .input(z.object({
+        // User biography context
+        fullName: z.string(),
+        birthDate: z.string(),
+        numerologyContext: z.object({
+          lifePathNumber: z.number(),
+          soulNumber: z.number(),
+          personalityNumber: z.number(),
+          destinyNumber: z.number(),
+          birthDayNumber: z.number(),
+          pinnacles: z.array(z.number()),
+          challenges: z.array(z.number()),
+          personalYear: z.number(),
+        }),
+        // Conversation history
+        messages: z.array(z.object({
+          role: z.enum(["user", "assistant"]),
+          content: z.string(),
+        })),
+        // The new question
+        question: z.string().min(1).max(1000),
+      }))
+      .mutation(async ({ input }) => {
+        const { fullName, birthDate, numerologyContext, messages, question } = input;
+
+        const systemPrompt = `Bạn là một chuyên gia Thần Số Học (Pythagorean Numerology) người Việt Nam, tên là "Số Học AI". Bạn đang tư vấn trực tiếp cho ${fullName} (sinh ngày ${birthDate}).
+
+DỮ LIỆU THẦN SỐ HỌC CỦA HỌ:
+- Số Chủ Đạo (Life Path): ${numerologyContext.lifePathNumber}
+- Số Linh Hồn (Soul): ${numerologyContext.soulNumber}
+- Số Nhân Cách (Personality): ${numerologyContext.personalityNumber}
+- Số Sứ Mệnh (Destiny/Expression): ${numerologyContext.destinyNumber}
+- Số Ngày Sinh: ${numerologyContext.birthDayNumber}
+- Năm Cá Nhân Hiện Tại: ${numerologyContext.personalYear}
+- 4 Đỉnh Cao (Pinnacles): ${numerologyContext.pinnacles.join(', ')}
+- 4 Thách Thức (Challenges): ${numerologyContext.challenges.join(', ')}
+
+HƯỚNG DẪN TRẢ LỜI:
+- Luôn dựa vào dữ liệu thần số học ở trên để cá nhân hóa câu trả lời cho ${fullName}
+- Trả lời bằng tiếng Việt, giọng văn thân thiện, sâu sắc và thiết thực
+- Nếu câu hỏi liên quan đến một con số, hãy giải thích ý nghĩa con số đó trong ngữ cảnh của người dùng
+- Độ dài câu trả lời phù hợp với câu hỏi: câu hỏi đơn giản thì trả lời ngắn gọn, câu hỏi phức tạp thì phân tích sâu
+- Không bịa đặt thông tin, luôn bám vào nguyên lý Thần Số Học chính thống`;
+
+        const chatHistory = messages.map(m => ({
+          role: m.role as "user" | "assistant",
+          content: m.content,
+        }));
+
+        const response = await invokeLLM({
+          messages: [
+            { role: "system", content: systemPrompt },
+            ...chatHistory,
+            { role: "user", content: question },
+          ],
+        });
+
+        const answer = String(response.choices[0]?.message?.content || "");
+        return { answer };
+      }),
   }),
 
   // Zodiac Router
@@ -634,7 +696,7 @@ export const appRouter = router({
           ],
         });
 
-        const forecast = response.choices[0]?.message?.content || "";
+        const forecast = String(response.choices[0]?.message?.content || "");
 
         // Step 2: Save to cache
         if (db) {
@@ -736,7 +798,7 @@ export const appRouter = router({
           ],
         });
 
-        const aiAdvice = response.choices[0]?.message?.content || "";
+        const aiAdvice = String(response.choices[0]?.message?.content || "");
         const ownerZodiac = ZODIAC_VIETNAMESE[getZodiacFromYear(input.ownerBirthYear)];
         const ownerElement = getElementFromYear(input.ownerBirthYear);
 
@@ -835,7 +897,7 @@ export const appRouter = router({
           ],
         });
 
-        const aiAdvice = response.choices[0]?.message?.content || "";
+        const aiAdvice = String(response.choices[0]?.message?.content || "");
         const zodiac = ZODIAC_VIETNAMESE[getZodiacFromYear(input.birthYear)];
         const element = getElementFromYear(input.birthYear);
 

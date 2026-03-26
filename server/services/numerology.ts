@@ -68,11 +68,11 @@ export function reduceToSingleDigit(num: number, keepMasterNumbers = true): numb
   if (keepMasterNumbers && MASTER_NUMBERS.includes(num)) {
     return num;
   }
-  
+
   while (num > 9 && !(keepMasterNumbers && MASTER_NUMBERS.includes(num))) {
     num = String(num).split('').reduce((sum, digit) => sum + parseInt(digit), 0);
   }
-  
+
   return num;
 }
 
@@ -96,12 +96,12 @@ function isVowel(char: string): boolean {
  */
 export function calculateLifePathNumber(birthDate: string): number {
   const [year, month, day] = birthDate.split('-').map(Number);
-  
+
   // Reduce each component
   const dayReduced = reduceToSingleDigit(day, false);
   const monthReduced = reduceToSingleDigit(month, false);
   const yearReduced = reduceToSingleDigit(year, false);
-  
+
   // Sum and reduce
   const total = dayReduced + monthReduced + yearReduced;
   return reduceToSingleDigit(total);
@@ -116,7 +116,7 @@ export function calculateSoulNumber(fullName: string): number {
     .split('')
     .filter(char => isVowel(char))
     .reduce((sum, char) => sum + getLetterValue(char), 0);
-  
+
   return reduceToSingleDigit(vowelSum);
 }
 
@@ -129,7 +129,7 @@ export function calculatePersonalityNumber(fullName: string): number {
     .split('')
     .filter(char => !isVowel(char) && LETTER_VALUES[char])
     .reduce((sum, char) => sum + getLetterValue(char), 0);
-  
+
   return reduceToSingleDigit(consonantSum);
 }
 
@@ -142,7 +142,7 @@ export function calculateDestinyNumber(fullName: string): number {
     .split('')
     .filter(char => LETTER_VALUES[char])
     .reduce((sum, char) => sum + getLetterValue(char), 0);
-  
+
   return reduceToSingleDigit(totalSum);
 }
 
@@ -160,19 +160,19 @@ export function calculateBirthDayNumber(birthDate: string): number {
  */
 export function generateBirthChart(birthDate: string): number[][] {
   const dateDigits = birthDate.replace(/-/g, '').split('').map(Number);
-  
+
   // Count frequency of each digit
   const frequency: Record<number, number> = {};
   for (let i = 1; i <= 9; i++) {
     frequency[i] = 0;
   }
-  
+
   dateDigits.forEach(digit => {
     if (digit >= 1 && digit <= 9) {
       frequency[digit]++;
     }
   });
-  
+
   // Create 3x3 grid (Pythagorean layout)
   // Layout:
   // 3 6 9
@@ -183,7 +183,7 @@ export function generateBirthChart(birthDate: string): number[][] {
     [frequency[2], frequency[5], frequency[8]],
     [frequency[1], frequency[4], frequency[7]],
   ];
-  
+
   return chart;
 }
 
@@ -193,25 +193,134 @@ export function generateBirthChart(birthDate: string): number[][] {
 export function findMasterNumbers(input: NumerologyInput): number[] {
   const masterNumbers: number[] = [];
   const [year, month, day] = input.birthDate.split('-').map(Number);
-  
+
   // Check if any intermediate sum equals a master number
   const daySum = String(day).split('').reduce((sum, d) => sum + parseInt(d), 0);
   const monthSum = String(month).split('').reduce((sum, d) => sum + parseInt(d), 0);
   const yearSum = String(year).split('').reduce((sum, d) => sum + parseInt(d), 0);
-  
+
   [daySum, monthSum, yearSum].forEach(sum => {
     if (MASTER_NUMBERS.includes(sum)) {
       masterNumbers.push(sum);
     }
   });
-  
+
   // Check total
   const total = daySum + monthSum + yearSum;
   if (MASTER_NUMBERS.includes(total)) {
     masterNumbers.push(total);
   }
-  
+
   return Array.from(new Set(masterNumbers));
+}
+
+/**
+ * Calculate Personal Year Number
+ * Formula: Reduce(Day + Month + CurrentYear)
+ */
+export function calculatePersonalYear(birthDate: string, year: number, keepMasterNumbers = false): number {
+  const [_, month, day] = birthDate.split('-').map(Number);
+  const sum = reduceToSingleDigit(day, false) + reduceToSingleDigit(month, false) + reduceToSingleDigit(year, false);
+  return reduceToSingleDigit(sum, keepMasterNumbers);
+}
+
+/**
+ * Calculate Personal Month Number
+ * Formula: Reduce(PersonalYear + CurrentMonth)
+ */
+export function calculatePersonalMonth(birthDate: string, month: number, year: number): number {
+  const personalYear = calculatePersonalYear(birthDate, year, false);
+  return reduceToSingleDigit(personalYear + month, false);
+}
+
+/**
+ * Calculate Life Path Cycles (3 Cycles)
+ * Cycle 1: Reduced Month
+ * Cycle 2: Reduced Day
+ * Cycle 3: Reduced Year
+ */
+export function calculateLifePathCycles(birthDate: string) {
+  const [year, month, day] = birthDate.split('-').map(Number);
+  return {
+    cycle1: reduceToSingleDigit(month, false),
+    cycle2: reduceToSingleDigit(day, false),
+    cycle3: reduceToSingleDigit(year, false),
+  };
+}
+
+/**
+ * Calculate Pinnacles (4 Peaks) - Vietnamese Base Order: Day, Month, Year
+ * 1. Day + Month
+ * 2. Month + Year
+ * 3. P1 + P2
+ * 4. Day + Year
+ */
+export function calculatePinnacles(birthDate: string): number[] {
+  const [year, month, day] = birthDate.split('-').map(Number);
+  const m = reduceToSingleDigit(month, false);
+  const d = reduceToSingleDigit(day, false);
+  const y = reduceToSingleDigit(year, false);
+
+  const p1 = reduceToSingleDigit(m + d, true); // Keep master if they do? Look at tracuuthansohoc: Peak 4 was 11!
+  const p2 = reduceToSingleDigit(d + y, true);
+  const p3 = reduceToSingleDigit(p1 + p2, true);
+  const p4 = reduceToSingleDigit(m + y, true); // Month + Year
+
+  return [p1, p2, p3, p4];
+}
+
+/**
+ * Calculate Challenges (4 Challenges) - Vietnamese Base Order: Day, Month, Year
+ * 1. |Day - Month|
+ * 2. |Month - Year|
+ * 3. |C1 - C2|
+ * 4. |Day - Year|
+ */
+export function calculateChallenges(birthDate: string): number[] {
+  const [year, month, day] = birthDate.split('-').map(Number);
+  const m = reduceToSingleDigit(month, false);
+  const d = reduceToSingleDigit(day, false);
+  const y = reduceToSingleDigit(year, false);
+
+  const c1 = Math.abs(m - d);
+  const c2 = Math.abs(d - y);
+  const c3 = Math.abs(c1 - c2);
+  const c4 = Math.abs(m - y);
+
+  return [c1, c2, c3, c4];
+}
+
+// ... existing code ...
+
+/**
+ * Calculate Personal Year Cycle Forecast (Current Year - 2 to Current Year + 7)
+ */
+export function calculateCycleForecast(birthDate: string): { year: number; personalYear: number; energyLevel: number; description: string }[] {
+  // Updated to show an 11-year window (5 years before, current year, 5 years after) 
+  // to match the requested reference chart, and strictly reduce to 1-9 (no master numbers)
+  const currentYear = new Date().getFullYear();
+  const startYear = currentYear - 5;
+  const forecast = [];
+
+  // Energy map for Pythagorean 9-year cycle visualization (peaks at 1, 9; troughs at 4, 7)
+  const ENERGY_MAP: Record<number, number> = {
+    1: 7, 2: 5, 3: 3, 4: 1, 5: 3, 6: 5, 7: 3, 8: 6, 9: 9
+  };
+
+  for (let i = 0; i < 11; i++) {
+    const year = startYear + i;
+    // Calculate strictly 1-9
+    const personalYear = calculatePersonalYear(birthDate, year, false);
+    
+    forecast.push({
+      year,
+      personalYear,
+      energyLevel: ENERGY_MAP[personalYear] || 5, // Map 1-9 to the shape Y-coord heights
+      description: `Năm cá nhân số ${personalYear}`,
+    });
+  }
+
+  return forecast;
 }
 
 /**
@@ -226,6 +335,12 @@ export function calculateNumerology(input: NumerologyInput): NumerologyResult {
     birthDayNumber: calculateBirthDayNumber(input.birthDate),
     birthChart: generateBirthChart(input.birthDate),
     masterNumbers: findMasterNumbers(input),
+    lifePathCycles: calculateLifePathCycles(input.birthDate),
+    pinnacles: calculatePinnacles(input.birthDate),
+    challenges: calculateChallenges(input.birthDate),
+    cycleForecast: calculateCycleForecast(input.birthDate),
+    personalYear: calculatePersonalYear(input.birthDate, new Date().getFullYear()),
+    personalMonth: calculatePersonalMonth(input.birthDate, new Date().getMonth() + 1, new Date().getFullYear()),
   };
 }
 
@@ -267,21 +382,3 @@ Hãy phân tích chi tiết với các nội dung:
 
 Viết bằng tiếng Việt, văn phong trang trọng nhưng dễ hiểu. Đưa ra những phân tích sâu sắc và lời khuyên thiết thực cho cuộc sống.`;
 }
-
-/**
- * Number meanings for quick reference
- */
-export const NUMBER_MEANINGS: Record<number, { title: string; keywords: string[] }> = {
-  1: { title: "Người Tiên Phong", keywords: ["Độc lập", "Lãnh đạo", "Sáng tạo", "Tự tin"] },
-  2: { title: "Người Hòa Giải", keywords: ["Hợp tác", "Nhạy cảm", "Ngoại giao", "Kiên nhẫn"] },
-  3: { title: "Người Sáng Tạo", keywords: ["Biểu đạt", "Nghệ thuật", "Lạc quan", "Giao tiếp"] },
-  4: { title: "Người Xây Dựng", keywords: ["Ổn định", "Thực tế", "Kỷ luật", "Chăm chỉ"] },
-  5: { title: "Người Tự Do", keywords: ["Phiêu lưu", "Linh hoạt", "Đa năng", "Tò mò"] },
-  6: { title: "Người Chăm Sóc", keywords: ["Trách nhiệm", "Yêu thương", "Gia đình", "Hài hòa"] },
-  7: { title: "Người Tìm Kiếm", keywords: ["Phân tích", "Tâm linh", "Trí tuệ", "Nội tâm"] },
-  8: { title: "Người Thành Đạt", keywords: ["Quyền lực", "Thành công", "Vật chất", "Tham vọng"] },
-  9: { title: "Người Nhân Đạo", keywords: ["Bác ái", "Lý tưởng", "Hoàn thiện", "Cho đi"] },
-  11: { title: "Người Trực Giác", keywords: ["Trực giác", "Tâm linh", "Soi sáng", "Nhạy cảm cao"] },
-  22: { title: "Người Kiến Tạo", keywords: ["Tầm nhìn lớn", "Thực hiện", "Xây dựng", "Di sản"] },
-  33: { title: "Người Thầy", keywords: ["Dạy dỗ", "Chữa lành", "Hy sinh", "Yêu thương vô điều kiện"] },
-};

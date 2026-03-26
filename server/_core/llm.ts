@@ -380,14 +380,8 @@ export async function invokeLLM(params: InvokeParams): Promise<InvokeResult> {
     payload.tool_choice = normalizedToolChoice;
   }
 
-  payload.max_tokens = 32768;
-
-  // Only add thinking for default Manus LLM
-  if (!customSettings) {
-    payload.thinking = {
-      "budget_tokens": 128
-    };
-  }
+  // Use a safer default max_tokens if not provided
+  payload.max_tokens = params.maxTokens || params.max_tokens || 4096;
 
   const normalizedResponseFormat = normalizeResponseFormat({
     responseFormat,

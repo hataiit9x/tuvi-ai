@@ -60,7 +60,7 @@ export const BirthDateSelector: React.FC<BirthDateSelectorProps> = ({
 }) => {
     return (
         <div className="space-y-3">
-            <Label className="text-base font-semibold text-gray-800 flex items-center gap-2">
+            <Label className="text-base font-semibold text-gray-800 dark:text-gray-200 flex items-center gap-2">
                 <Calendar className="w-4 h-4 text-purple-500" />
                 {showHour ? 'Ngày tháng năm sinh & Giờ sinh' : 'Ngày tháng năm sinh'}
             </Label>
@@ -70,7 +70,7 @@ export const BirthDateSelector: React.FC<BirthDateSelectorProps> = ({
                     value={String(birthDay)}
                     onValueChange={(v) => onBirthDayChange(parseInt(v))}
                 >
-                    <SelectTrigger className="h-14 bg-gradient-to-br from-white to-purple-50/30 border-2 border-purple-200 hover:border-purple-300 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 rounded-xl text-base font-medium shadow-sm transition-all">
+                    <SelectTrigger className="h-14 bg-gradient-to-br from-white to-purple-50/30 dark:from-card dark:to-purple-900/10 border-2 border-purple-200 dark:border-purple-800/50 hover:border-purple-300 dark:hover:border-purple-500/50 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 dark:focus:ring-purple-900/30 rounded-xl text-base font-medium shadow-sm transition-all dark:text-white">
                         <SelectValue placeholder="Ngày" />
                     </SelectTrigger>
                     <SelectContent className="max-h-[200px]">
@@ -78,7 +78,7 @@ export const BirthDateSelector: React.FC<BirthDateSelectorProps> = ({
                             <SelectItem
                                 key={d}
                                 value={String(d)}
-                                className="cursor-pointer hover:bg-purple-50 font-medium"
+                                className="cursor-pointer hover:bg-purple-50 dark:hover:bg-purple-900/20 font-medium"
                             >
                                 Ngày {d}
                             </SelectItem>
@@ -91,7 +91,7 @@ export const BirthDateSelector: React.FC<BirthDateSelectorProps> = ({
                     value={String(birthMonth)}
                     onValueChange={(v) => onBirthMonthChange(parseInt(v))}
                 >
-                    <SelectTrigger className="h-14 bg-gradient-to-br from-white to-purple-50/30 border-2 border-purple-200 hover:border-purple-300 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 rounded-xl text-base font-medium shadow-sm transition-all">
+                    <SelectTrigger className="h-14 bg-gradient-to-br from-white to-purple-50/30 dark:from-card dark:to-purple-900/10 border-2 border-purple-200 dark:border-purple-800/50 hover:border-purple-300 dark:hover:border-purple-500/50 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 dark:focus:ring-purple-900/30 rounded-xl text-base font-medium shadow-sm transition-all dark:text-white">
                         <SelectValue placeholder="Tháng" />
                     </SelectTrigger>
                     <SelectContent className="max-h-[200px]">
@@ -99,7 +99,7 @@ export const BirthDateSelector: React.FC<BirthDateSelectorProps> = ({
                             <SelectItem
                                 key={m.value}
                                 value={String(m.value)}
-                                className="cursor-pointer hover:bg-purple-50 font-medium"
+                                className="cursor-pointer hover:bg-purple-50 dark:hover:bg-purple-900/20 font-medium"
                             >
                                 {m.label}
                             </SelectItem>
@@ -112,7 +112,7 @@ export const BirthDateSelector: React.FC<BirthDateSelectorProps> = ({
                     value={String(birthYear)}
                     onValueChange={(v) => onBirthYearChange(parseInt(v))}
                 >
-                    <SelectTrigger className="h-14 bg-gradient-to-br from-white to-purple-50/30 border-2 border-purple-200 hover:border-purple-300 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 rounded-xl text-base font-medium shadow-sm transition-all">
+                    <SelectTrigger className="h-14 bg-gradient-to-br from-white to-purple-50/30 dark:from-card dark:to-purple-900/10 border-2 border-purple-200 dark:border-purple-800/50 hover:border-purple-300 dark:hover:border-purple-500/50 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 dark:focus:ring-purple-900/30 rounded-xl text-base font-medium shadow-sm transition-all dark:text-white">
                         <SelectValue placeholder="Năm" />
                     </SelectTrigger>
                     <SelectContent className="max-h-[250px]">
@@ -120,7 +120,7 @@ export const BirthDateSelector: React.FC<BirthDateSelectorProps> = ({
                             <SelectItem
                                 key={y}
                                 value={String(y)}
-                                className="cursor-pointer hover:bg-purple-50 font-medium"
+                                className="cursor-pointer hover:bg-purple-50 dark:hover:bg-purple-900/20 font-medium"
                             >
                                 Năm {y}
                             </SelectItem>
@@ -134,9 +134,9 @@ export const BirthDateSelector: React.FC<BirthDateSelectorProps> = ({
                         value={birthHour}
                         onValueChange={onBirthHourChange}
                     >
-                        <SelectTrigger className="h-14 bg-gradient-to-br from-white to-amber-50/30 border-2 border-amber-200 hover:border-amber-300 focus:border-amber-500 focus:ring-2 focus:ring-amber-200 rounded-xl text-base font-medium shadow-sm transition-all">
+                        <SelectTrigger className="h-14 bg-gradient-to-br from-white to-amber-50/30 dark:from-card dark:to-amber-900/10 border-2 border-amber-200 dark:border-amber-800/50 hover:border-amber-300 dark:hover:border-amber-500/50 focus:border-amber-500 focus:ring-2 focus:ring-amber-200 dark:focus:ring-amber-900/30 rounded-xl text-base font-medium shadow-sm transition-all dark:text-white">
                             <div className="flex items-center gap-2">
-                                <Clock className="w-4 h-4 text-amber-600" />
+                                <Clock className="w-4 h-4 text-amber-600 dark:text-amber-400" />
                                 <SelectValue placeholder="Giờ sinh" />
                             </div>
                         </SelectTrigger>
@@ -145,7 +145,7 @@ export const BirthDateSelector: React.FC<BirthDateSelectorProps> = ({
                                 <SelectItem
                                     key={hour.value}
                                     value={hour.value}
-                                    className="py-3 cursor-pointer hover:bg-amber-50"
+                                    className="py-3 cursor-pointer hover:bg-amber-50 dark:hover:bg-amber-900/20"
                                 >
                                     <span className="font-medium">{hour.label}</span>
                                 </SelectItem>

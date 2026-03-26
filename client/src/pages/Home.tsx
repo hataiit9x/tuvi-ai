@@ -96,21 +96,21 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative overflow-hidden">
         {/* Background decoration */}
-        <div className="absolute inset-0 bg-gradient-to-b from-purple-50/50 via-white to-white" />
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-gradient-to-r from-purple-200/30 to-indigo-200/30 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute inset-0 bg-gradient-to-b from-purple-50/50 via-white to-white dark:from-background dark:via-background dark:to-background" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-gradient-to-r from-purple-200/30 to-indigo-200/30 dark:from-purple-500/10 dark:to-indigo-500/10 rounded-full blur-3xl animate-pulse" />
         
         <div className="container relative py-20 md:py-32">
           <div className="max-w-3xl mx-auto text-center">
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-100 text-purple-700 text-sm font-medium mb-8 animate-fade-in-down">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-100 dark:bg-purple-500/20 text-purple-700 dark:text-purple-300 text-sm font-medium mb-8 animate-fade-in-down border border-transparent dark:border-purple-500/30">
               <Sparkles className="w-4 h-4 animate-spin-slow" />
               Kết hợp trí tuệ nhân tạo & thuật toán truyền thống
             </div>
             
             {/* Heading */}
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight animate-fade-in-up">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6 leading-tight animate-fade-in-up">
               Khám Phá{" "}
-              <span className="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-purple-600 to-indigo-600 dark:from-purple-400 dark:to-indigo-400 bg-clip-text text-transparent">
                 Vận Mệnh
               </span>
               <br />
@@ -118,7 +118,7 @@ export default function Home() {
             </h1>
             
             {/* Description */}
-            <p className="text-lg md:text-xl text-gray-600 mb-10 leading-relaxed animate-fade-in-up animate-delay-100">
+            <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-10 leading-relaxed animate-fade-in-up animate-delay-100">
               Tử Vi AI kết hợp thuật toán tử vi đẩu số truyền thống với công nghệ AI hiện đại, 
               mang đến những phân tích chuyên sâu và chính xác về vận mệnh của bạn.
             </p>
@@ -144,7 +144,7 @@ export default function Home() {
       </section>
 
       {/* Highlights Section */}
-      <section className="py-12 bg-white border-y border-gray-100">
+      <section className="py-12 bg-white dark:bg-card border-y border-gray-100 dark:border-border">
         <div className="container">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {highlights.map((item, index) => (
@@ -153,12 +153,12 @@ export default function Home() {
                 className="flex items-center gap-4 animate-fade-in-up"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-100 to-indigo-100 flex items-center justify-center flex-shrink-0 transition-transform duration-300 hover:scale-110">
-                  <item.icon className="w-6 h-6 text-purple-600" />
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-100 to-indigo-100 dark:from-purple-500/20 dark:to-indigo-500/20 flex items-center justify-center flex-shrink-0 transition-transform duration-300 hover:scale-110">
+                  <item.icon className="w-6 h-6 text-purple-600 dark:text-purple-400" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-gray-900">{item.title}</h3>
-                  <p className="text-sm text-gray-500">{item.description}</p>
+                  <h3 className="font-semibold text-gray-900 dark:text-white">{item.title}</h3>
+                  <p className="text-sm text-gray-500 dark:text-gray-400">{item.description}</p>
                 </div>
               </div>
             ))}
@@ -167,7 +167,7 @@ export default function Home() {
       </section>
 
       {/* Features Section */}
-      <section className="section bg-gray-50/50">
+      <section className="section bg-gray-50/50 dark:bg-muted/30">
         <div className="container">
           <div className="section-title animate-fade-in-up">
             <h2>Các Tính Năng Nổi Bật</h2>
@@ -187,13 +187,13 @@ export default function Home() {
                   <div className={`feature-card-icon bg-gradient-to-br ${feature.bgGradient}`}>
                     <feature.icon className={`w-6 h-6 bg-gradient-to-r ${feature.gradient} bg-clip-text text-transparent`} style={{ color: feature.gradient.includes('purple') ? '#7c3aed' : feature.gradient.includes('amber') ? '#f59e0b' : feature.gradient.includes('emerald') ? '#10b981' : feature.gradient.includes('red') ? '#ef4444' : '#6366f1' }} />
                   </div>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-purple-600 transition-colors">
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
                     {feature.title}
                   </h3>
-                  <p className="text-gray-500 text-sm leading-relaxed mb-4">
+                  <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed mb-4">
                     {feature.description}
                   </p>
-                  <div className="flex items-center text-purple-600 text-sm font-medium">
+                  <div className="flex items-center text-purple-600 dark:text-purple-400 text-sm font-medium">
                     Khám phá ngay
                     <ChevronRight className="w-4 h-4 ml-1 group-hover:translate-x-2 transition-transform duration-300" />
                   </div>
@@ -209,15 +209,15 @@ export default function Home() {
         <div className="container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="animate-fade-in-left">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-100 text-purple-700 text-sm font-medium mb-6">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-100 dark:bg-purple-500/20 text-purple-700 dark:text-purple-300 text-sm font-medium mb-6">
                 <Zap className="w-4 h-4" />
                 Công nghệ AI tiên tiến
               </div>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">
                 Phân Tích Chuyên Sâu Bằng{" "}
                 <span className="text-gradient-purple">Trí Tuệ Nhân Tạo</span>
               </h2>
-              <p className="text-gray-600 mb-8 leading-relaxed">
+              <p className="text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
                 Tử Vi AI sử dụng các mô hình ngôn ngữ lớn (LLM) tiên tiến nhất để phân tích 
                 và luận giải lá số tử vi, thần số học một cách chi tiết và chính xác.
               </p>
@@ -233,12 +233,12 @@ export default function Home() {
                     className="flex items-start gap-3 animate-fade-in-up"
                     style={{ animationDelay: `${index * 100}ms` }}
                   >
-                    <div className="w-5 h-5 rounded-full bg-green-100 flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <svg className="w-3 h-3 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <div className="w-5 h-5 rounded-full bg-green-100 dark:bg-green-500/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <svg className="w-3 h-3 text-green-600 dark:text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                       </svg>
                     </div>
-                    <span className="text-gray-600">{item}</span>
+                    <span className="text-gray-600 dark:text-gray-300">{item}</span>
                   </li>
                 ))}
               </ul>
@@ -246,13 +246,13 @@ export default function Home() {
             
             <div className="relative animate-fade-in-right">
               {/* Decorative background */}
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-200/50 to-indigo-200/50 rounded-3xl blur-2xl animate-pulse" />
+              <div className="absolute inset-0 bg-gradient-to-r from-purple-200/50 to-indigo-200/50 dark:from-purple-500/20 dark:to-indigo-500/20 rounded-3xl blur-2xl animate-pulse" />
               
               {/* Content */}
-              <div className="relative bg-white rounded-2xl shadow-xl p-8 border border-gray-100 hover:shadow-2xl transition-shadow duration-300">
+              <div className="relative bg-white dark:bg-card rounded-2xl shadow-xl p-8 border border-gray-100 dark:border-border hover:shadow-2xl transition-shadow duration-300">
                 {/* Birth chart preview */}
                 <div className="mb-6">
-                  <h4 className="text-sm font-medium text-gray-500 mb-4">Biểu đồ ngày sinh</h4>
+                  <h4 className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-4">Biểu đồ ngày sinh</h4>
                   <div className="birth-chart-grid">
                     {[3, 6, 9, 2, 5, 8, 1, 4, 7].map((num, index) => (
                       <div 
@@ -266,8 +266,8 @@ export default function Home() {
                   </div>
                 </div>
                 
-                <div className="pt-6 border-t border-gray-100">
-                  <p className="text-sm text-gray-500 text-center">
+                <div className="pt-6 border-t border-gray-100 dark:border-border">
+                  <p className="text-sm text-gray-500 dark:text-gray-400 text-center">
                     Khám phá con số vận mệnh của bạn
                   </p>
                 </div>

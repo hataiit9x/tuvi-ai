@@ -38,8 +38,8 @@ function ZodiacCard({
       onClick={onClick}
     >
       <div className="zodiac-icon">{animal.emoji}</div>
-      <div className="font-semibold text-gray-900 text-sm">{animal.name}</div>
-      <div className="text-xs text-gray-500 mt-1">
+      <div className="font-semibold text-gray-900 dark:text-white text-sm">{animal.name}</div>
+      <div className="text-xs text-gray-500 dark:text-gray-400 mt-1">
         {animal.years.slice(-3).join(", ")}...
       </div>
     </button>
@@ -84,17 +84,17 @@ export default function Zodiac() {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="bg-gradient-to-b from-amber-50 to-white py-12">
+      <section className="bg-gradient-to-b from-amber-50 to-white dark:from-background dark:to-background py-12">
         <div className="container">
           <div className="max-w-2xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-100 text-amber-700 text-sm font-medium mb-6">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-100 dark:bg-amber-500/20 text-amber-700 dark:text-amber-300 text-sm font-medium mb-6 border border-transparent dark:border-amber-500/30">
               <Sparkles className="w-4 h-4" />
               Dự báo năm Bính Ngọ 2026
             </div>
-            <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h1 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
               Tử Vi 12 Con Giáp 2026
             </h1>
-            <p className="text-gray-600">
+            <p className="text-gray-600 dark:text-gray-300">
               Dự báo chi tiết vận mệnh năm 2026 cho 12 con giáp về sự nghiệp, 
               tài chính, tình duyên và sức khỏe.
             </p>
@@ -110,8 +110,8 @@ export default function Zodiac() {
               {/* Year Input */}
               <div className="max-w-md mx-auto">
                 <div className="result-card">
-                  <h3 className="font-bold text-gray-900 mb-2 text-center">Nhập năm sinh để tìm con giáp</h3>
-                  <p className="text-sm text-gray-500 mb-4 text-center">
+                  <h3 className="font-bold text-gray-900 dark:text-white mb-2 text-center">Nhập năm sinh để tìm con giáp</h3>
+                  <p className="text-sm text-gray-500 dark:text-gray-400 mb-4 text-center">
                     Hoặc chọn trực tiếp con giáp bên dưới
                   </p>
                   <div className="flex gap-4">
@@ -125,11 +125,11 @@ export default function Zodiac() {
                       className="form-input"
                     />
                     {zodiacFromYear.data && (
-                      <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-purple-50 border border-purple-100">
+                      <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-purple-50 dark:bg-purple-500/20 border border-purple-100 dark:border-purple-500/30">
                         <span className="text-2xl">
                           {ZODIAC_ANIMALS.find(z => z.id === zodiacFromYear.data.animal)?.emoji}
                         </span>
-                        <span className="font-medium text-purple-700">{zodiacFromYear.data.vietnameseName}</span>
+                        <span className="font-medium text-purple-700 dark:text-purple-300">{zodiacFromYear.data.vietnameseName}</span>
                       </div>
                     )}
                   </div>
@@ -138,7 +138,7 @@ export default function Zodiac() {
 
               {/* Zodiac Grid */}
               <div>
-                <h2 className="text-xl font-bold text-gray-900 text-center mb-6">
+                <h2 className="text-xl font-bold text-gray-900 dark:text-white text-center mb-6">
                   Chọn Con Giáp Của Bạn
                 </h2>
                 <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-4 max-w-4xl mx-auto">
@@ -162,10 +162,10 @@ export default function Zodiac() {
                         {selectedZodiac?.emoji}
                       </div>
                       <div className="text-left">
-                        <div className="text-xl font-bold text-gray-900">
+                        <div className="text-xl font-bold text-gray-900 dark:text-white">
                           {selectedZodiac?.name}
                         </div>
-                        <div className="text-gray-500">
+                        <div className="text-gray-500 dark:text-gray-400">
                           Dự báo vận mệnh năm 2026
                         </div>
                       </div>
@@ -208,10 +208,10 @@ export default function Zodiac() {
                 <div className="text-6xl mb-4">
                   {ZODIAC_ANIMALS.find(z => z.id === result.animal)?.emoji}
                 </div>
-                <h2 className="text-2xl font-bold text-gray-900 mb-2">
+                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
                   Dự Báo {result.vietnameseName} Năm {result.year}
                 </h2>
-                <p className="text-gray-500">
+                <p className="text-gray-500 dark:text-gray-400">
                   Phân tích chi tiết vận mệnh theo từng tháng
                 </p>
               </div>
@@ -223,8 +223,8 @@ export default function Zodiac() {
                     <Sparkles className="w-8 h-8 text-amber-600" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-gray-900">Dự Báo Chi Tiết</h3>
-                    <p className="text-gray-500">Phân tích từ trí tuệ nhân tạo</p>
+                    <h3 className="text-xl font-bold text-gray-900 dark:text-white">Dự Báo Chi Tiết</h3>
+                    <p className="text-gray-500 dark:text-gray-400">Phân tích từ trí tuệ nhân tạo</p>
                   </div>
                 </div>
                 <div className="prose prose-gray max-w-none">
