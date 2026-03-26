@@ -1,5 +1,5 @@
 /* Google Fonts - Inter for clean Vietnamese text, Quicksand for headings */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap");
 
 @import "tailwindcss";
 @import "tw-animate-css";
@@ -43,109 +43,109 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
-  
+
   /* Font families - Inter for body, Quicksand for headings */
-  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  --font-display: 'Quicksand', 'Inter', sans-serif;
+  --font-sans:
+    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-display: "Quicksand", "Inter", sans-serif;
 }
 
 :root {
-  /* Purple theme - cleaner, more modern */
-  --primary: #7c3aed;
-  --primary-foreground: #ffffff;
-  
-  /* Sidebar colors */
-  --sidebar-primary: #7c3aed;
-  --sidebar-primary-foreground: #ffffff;
-  
-  /* Chart colors */
-  --chart-1: #8b5cf6;
-  --chart-2: #a78bfa;
-  --chart-3: #f59e0b;
-  --chart-4: #10b981;
-  --chart-5: #ec4899;
-  
-  --radius: 0.75rem;
-  
-  /* Light theme - clean white/gray */
-  --background: #ffffff;
-  --foreground: #1f2937;
-  
+  /* Mystic Light Theme - Lavender Mist */
+  --background: #fdfbfd; /* Very subtle lavender tint */
+  --foreground: #2d1b4e; /* Deep purple-black text */
+
   --card: #ffffff;
-  --card-foreground: #1f2937;
-  
+  --card-foreground: #2d1b4e;
+
   --popover: #ffffff;
-  --popover-foreground: #1f2937;
-  
-  --secondary: #f3f4f6;
-  --secondary-foreground: #4b5563;
-  
-  --muted: #f9fafb;
-  --muted-foreground: #6b7280;
-  
-  --accent: #ede9fe;
-  --accent-foreground: #5b21b6;
-  
+  --popover-foreground: #2d1b4e;
+
+  --primary: #7c3aed; /* Vivid Purple */
+  --primary-foreground: #ffffff;
+
+  --secondary: #f3e8ff; /* Light purple secondary */
+  --secondary-foreground: #581c87;
+
+  --muted: #f1f5f9;
+  --muted-foreground: #64748b;
+
+  --accent: #faf5ff;
+  --accent-foreground: #6b21a8;
+
   --destructive: #ef4444;
-  --destructive-foreground: #ffffff;
-  
-  --border: #e5e7eb;
-  --input: #e5e7eb;
+  --destructive-foreground: #f8fafc;
+
+  --border: #e2e8f0;
+  --input: #e2e8f0;
   --ring: #7c3aed;
-  
+
+  --radius: 1rem;
+
+  /* Chart Colors - Mystic & Vibrant */
+  --chart-1: #8b5cf6; /* Violet */
+  --chart-2: #d946ef; /* Fuchsia */
+  --chart-3: #f59e0b; /* Amber/Gold */
+  --chart-4: #10b981; /* Emerald */
+  --chart-5: #6366f1; /* Indigo */
+
   /* Sidebar */
   --sidebar: #faf5ff;
-  --sidebar-foreground: #1f2937;
-  --sidebar-accent: #ede9fe;
-  --sidebar-accent-foreground: #5b21b6;
-  --sidebar-border: #e5e7eb;
+  --sidebar-foreground: #2d1b4e;
+  --sidebar-primary: #7c3aed;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #f3e8ff;
+  --sidebar-accent-foreground: #581c87;
+  --sidebar-border: #e9d5ff;
   --sidebar-ring: #7c3aed;
 }
 
 .dark {
-  --primary: #a78bfa;
-  --primary-foreground: #1f2937;
-  
-  --sidebar-primary: #a78bfa;
-  --sidebar-primary-foreground: #1f2937;
-  
-  --background: #111827;
-  --foreground: #f9fafb;
-  
-  --card: #1f2937;
-  --card-foreground: #f9fafb;
-  
-  --popover: #1f2937;
-  --popover-foreground: #f9fafb;
-  
-  --secondary: #374151;
-  --secondary-foreground: #e5e7eb;
-  
-  --muted: #374151;
-  --muted-foreground: #9ca3af;
-  
-  --accent: #4c1d95;
-  --accent-foreground: #e9d5ff;
-  
-  --destructive: #dc2626;
+  /* Premium Dark Theme - Refined Cosmic */
+  --background: #0c0a1d; /* Deep blue-black with subtle warmth */
+  --foreground: #f1f5f9; /* Clean white-gray for readability */
+
+  --card: #13111c; /* Slightly elevated card background */
+  --card-foreground: #f1f5f9;
+
+  --popover: #1a1625; /* Elevated popover */
+  --popover-foreground: #f1f5f9;
+
+  --primary: #8b5cf6; /* Vibrant violet */
+  --primary-foreground: #ffffff;
+
+  --secondary: #1e1b2e; /* Subtle purple-gray */
+  --secondary-foreground: #e2e8f0;
+
+  --muted: #1c1a29; /* Muted background */
+  --muted-foreground: #a1a1aa; /* Readable muted text */
+
+  --accent: #2d2640; /* Soft purple accent */
+  --accent-foreground: #f1f5f9;
+
+  --destructive: #ef4444;
   --destructive-foreground: #ffffff;
-  
-  --border: #374151;
-  --input: #374151;
-  --ring: #a78bfa;
-  
-  --chart-1: #a78bfa;
-  --chart-2: #c4b5fd;
-  --chart-3: #fbbf24;
-  --chart-4: #34d399;
-  --chart-5: #f472b6;
-  
-  --sidebar: #1f2937;
-  --sidebar-foreground: #f9fafb;
-  --sidebar-accent: #374151;
-  --sidebar-accent-foreground: #e9d5ff;
-  --sidebar-border: #374151;
-  --sidebar-ring: #a78bfa;
+
+  --border: #2d2a3d; /* Visible but subtle border */
+  --input: #23202f;
+  --ring: #8b5cf6;
+
+  /* Chart Colors - Vibrant & Clear */
+  --chart-1: #8b5cf6; /* Violet */
+  --chart-2: #ec4899; /* Pink */
+  --chart-3: #f59e0b; /* Amber */
+  --chart-4: #10b981; /* Emerald */
+  --chart-5: #3b82f6; /* Blue */
+
+  /* Sidebar */
+  --sidebar: #0f0d19;
+  --sidebar-foreground: #f1f5f9;
+  --sidebar-primary: #8b5cf6;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #2d2640;
+  --sidebar-accent-foreground: #f1f5f9;
+  --sidebar-border: #2d2a3d;
+  --sidebar-ring: #8b5cf6;
 }
 
 @layer base {
@@ -165,21 +165,34 @@
     line-height: 1.6;
     letter-spacing: -0.01em;
   }
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-family: var(--font-display);
     font-weight: 600;
     line-height: 1.3;
     letter-spacing: -0.02em;
   }
-  h1 { @apply text-3xl md:text-4xl lg:text-5xl; }
-  h2 { @apply text-2xl md:text-3xl; }
-  h3 { @apply text-xl md:text-2xl; }
-  h4 { @apply text-lg md:text-xl; }
-  
+  h1 {
+    @apply text-3xl md:text-4xl lg:text-5xl;
+  }
+  h2 {
+    @apply text-2xl md:text-3xl;
+  }
+  h3 {
+    @apply text-xl md:text-2xl;
+  }
+  h4 {
+    @apply text-lg md:text-xl;
+  }
+
   p {
     @apply leading-relaxed;
   }
-  
+
   button:not(:disabled),
   [role="button"]:not([aria-disabled="true"]),
   [type="button"]:not(:disabled),
@@ -196,9 +209,25 @@
 /* ===== ANIMATIONS ===== */
 
 /* Keyframes */
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes fadeInUp {
@@ -275,7 +304,8 @@
 }
 
 @keyframes pulse-glow {
-  0%, 100% {
+  0%,
+  100% {
     box-shadow: 0 0 0 0 rgba(124, 58, 237, 0.4);
   }
   50% {
@@ -284,7 +314,8 @@
 }
 
 @keyframes float {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0);
   }
   50% {
@@ -311,6 +342,10 @@
 }
 
 /* Animation classes */
+.animate-twinkle {
+  animation: twinkle 3s ease-in-out infinite;
+}
+
 .animate-fade-in {
   animation: fadeIn 0.5s ease-out forwards;
 }
@@ -362,14 +397,30 @@
 }
 
 /* Staggered animation delays */
-.animate-delay-100 { animation-delay: 100ms; }
-.animate-delay-200 { animation-delay: 200ms; }
-.animate-delay-300 { animation-delay: 300ms; }
-.animate-delay-400 { animation-delay: 400ms; }
-.animate-delay-500 { animation-delay: 500ms; }
-.animate-delay-600 { animation-delay: 600ms; }
-.animate-delay-700 { animation-delay: 700ms; }
-.animate-delay-800 { animation-delay: 800ms; }
+.animate-delay-100 {
+  animation-delay: 100ms;
+}
+.animate-delay-200 {
+  animation-delay: 200ms;
+}
+.animate-delay-300 {
+  animation-delay: 300ms;
+}
+.animate-delay-400 {
+  animation-delay: 400ms;
+}
+.animate-delay-500 {
+  animation-delay: 500ms;
+}
+.animate-delay-600 {
+  animation-delay: 600ms;
+}
+.animate-delay-700 {
+  animation-delay: 700ms;
+}
+.animate-delay-800 {
+  animation-delay: 800ms;
+}
 
 /* Initially hidden for animation */
 .animate-on-scroll {
@@ -408,278 +459,279 @@
       max-width: 1280px;
     }
   }
-  
+
   /* Card styles with enhanced hover */
   .card-hover {
     @apply transition-all duration-300 ease-out;
     @apply hover:shadow-lg hover:shadow-purple-500/10 hover:-translate-y-1;
   }
-  
+
   /* Interactive card with scale effect */
   .card-interactive {
     @apply transition-all duration-300 ease-out;
     @apply hover:shadow-xl hover:shadow-purple-500/15 hover:-translate-y-2 hover:scale-[1.02];
     @apply active:scale-[0.98] active:shadow-md;
   }
-  
+
   /* Gradient backgrounds */
   .bg-gradient-purple {
     @apply bg-gradient-to-r from-purple-600 to-indigo-600;
   }
-  
+
   .bg-gradient-purple-light {
     @apply bg-gradient-to-r from-purple-50 to-indigo-50;
   }
-  
+
   .text-gradient-purple {
     @apply bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent;
   }
-  
+
   /* Feature card with animation */
   .feature-card {
-    @apply relative bg-white rounded-2xl p-6 border border-gray-100;
+    @apply relative bg-white dark:bg-card rounded-2xl p-6 border border-gray-100 dark:border-border;
     @apply shadow-sm;
-    @apply transition-all duration-300 ease-out;
-    @apply hover:shadow-xl hover:shadow-purple-500/10 hover:-translate-y-2;
+    @apply transition-all duration-300 ease-out cursor-pointer;
+    @apply hover:shadow-xl hover:shadow-purple-500/10 dark:hover:shadow-purple-500/20 hover:-translate-y-2;
     @apply active:scale-[0.98];
   }
-  
+
   .feature-card::before {
-    content: '';
+    content: "";
     @apply absolute inset-0 rounded-2xl opacity-0;
     @apply bg-gradient-to-br from-purple-500/5 to-indigo-500/5;
     @apply transition-opacity duration-300;
   }
-  
+
   .feature-card:hover::before {
     @apply opacity-100;
   }
-  
+
   .feature-card-icon {
     @apply w-12 h-12 rounded-xl flex items-center justify-center mb-4;
-    @apply bg-gradient-to-br from-purple-100 to-indigo-100;
+    @apply bg-gradient-to-br from-purple-100 to-indigo-100 dark:from-purple-500/20 dark:to-indigo-500/20;
     @apply transition-transform duration-300;
   }
-  
+
   .feature-card:hover .feature-card-icon {
     @apply scale-110;
   }
-  
+
   /* Form styles with focus animation */
   .form-input {
-    @apply w-full px-4 py-3 rounded-xl border border-gray-200;
-    @apply bg-white text-gray-900 placeholder-gray-400;
+    @apply w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-border;
+    @apply bg-white dark:bg-input text-gray-900 dark:text-foreground placeholder-gray-400 dark:placeholder-muted-foreground;
     @apply focus:outline-none focus:ring-2 focus:ring-purple-500/20 focus:border-purple-500;
     @apply transition-all duration-200;
   }
-  
+
   .form-input:focus {
-    @apply shadow-lg shadow-purple-500/10;
+    @apply shadow-lg shadow-purple-500/10 dark:shadow-purple-900/20;
     transform: translateY(-1px);
   }
-  
+
   .form-label {
-    @apply block text-sm font-medium text-gray-700 mb-2;
+    @apply block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2;
   }
-  
+
   /* Button styles with enhanced animations */
   .btn-primary {
     @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl;
     @apply bg-gradient-to-r from-purple-600 to-indigo-600 text-white font-medium;
-    @apply shadow-lg shadow-purple-500/25;
+    @apply shadow-lg shadow-purple-500/25 dark:shadow-black/40;
     @apply transition-all duration-200 ease-out;
-    @apply hover:shadow-xl hover:shadow-purple-500/30 hover:from-purple-700 hover:to-indigo-700;
+    @apply hover:shadow-xl hover:shadow-purple-500/30 dark:hover:shadow-black/60 hover:from-purple-700 hover:to-indigo-700;
     @apply hover:-translate-y-0.5;
     @apply active:translate-y-0 active:shadow-md active:scale-[0.98];
     @apply disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0;
   }
-  
+
   .btn-secondary {
     @apply inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl;
-    @apply bg-white text-gray-700 font-medium border border-gray-200;
+    @apply bg-white dark:bg-transparent text-gray-700 dark:text-white font-medium;
+    @apply border border-gray-200 dark:border-purple-400/60;
     @apply transition-all duration-200 ease-out;
-    @apply hover:bg-gray-50 hover:border-gray-300 hover:-translate-y-0.5 hover:shadow-md;
+    @apply hover:bg-gray-50 dark:hover:bg-purple-500/20 hover:border-gray-300 dark:hover:border-purple-400 hover:-translate-y-0.5 hover:shadow-md;
     @apply active:translate-y-0 active:scale-[0.98];
   }
-  
+
   /* Icon button animation */
   .btn-icon {
     @apply p-2 rounded-lg transition-all duration-200;
-    @apply hover:bg-gray-100 hover:scale-110;
+    @apply hover:bg-gray-100 dark:hover:bg-accent hover:scale-110;
     @apply active:scale-95;
   }
-  
+
   /* Section styles */
   .section {
     @apply py-16 md:py-24;
   }
-  
+
   .section-title {
     @apply text-center mb-12;
   }
-  
+
   .section-title h2 {
-    @apply text-3xl md:text-4xl font-bold text-gray-900 mb-4;
+    @apply text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4;
   }
-  
+
   .section-title p {
-    @apply text-lg text-gray-500 max-w-2xl mx-auto;
+    @apply text-lg text-gray-500 dark:text-gray-400 max-w-2xl mx-auto;
   }
-  
+
   /* Palace grid for Tử Vi chart */
   .palace-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 4px;
   }
-  
+
   .palace-cell {
-    @apply bg-white border border-gray-200 rounded-lg p-3 text-center;
+    @apply bg-white dark:bg-card border border-gray-200 dark:border-border rounded-lg p-3 text-center;
     @apply transition-all duration-200;
-    @apply hover:bg-purple-50 hover:border-purple-200 hover:shadow-md hover:-translate-y-0.5;
+    @apply hover:bg-purple-50 dark:hover:bg-accent hover:border-purple-200 dark:hover:border-primary/50 hover:shadow-md hover:-translate-y-0.5;
     @apply cursor-pointer;
   }
-  
+
   .palace-cell.active {
-    @apply bg-purple-100 border-purple-300 shadow-lg shadow-purple-500/20;
+    @apply bg-purple-100 dark:bg-purple-500/20 border-purple-300 dark:border-purple-500 shadow-lg shadow-purple-500/20 dark:shadow-purple-900/30;
     animation: scaleIn 0.3s ease-out;
   }
-  
+
   .palace-cell-title {
-    @apply text-xs font-semibold text-purple-600 mb-1;
+    @apply text-xs font-semibold text-purple-600 dark:text-purple-400 mb-1;
   }
-  
+
   .palace-cell-stars {
-    @apply text-xs text-gray-500;
+    @apply text-xs text-gray-500 dark:text-gray-400;
   }
-  
+
   /* Birth chart grid for numerology */
   .birth-chart-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 8px;
   }
-  
+
   .birth-chart-cell {
     @apply aspect-square flex items-center justify-center;
-    @apply bg-gray-100 rounded-xl font-bold text-xl text-gray-400;
+    @apply bg-gray-100 dark:bg-muted rounded-xl font-bold text-xl text-gray-400 dark:text-gray-500;
     @apply transition-all duration-300;
   }
-  
+
   .birth-chart-cell.has-number {
     @apply bg-gradient-to-br from-purple-500 to-indigo-500 text-white;
-    @apply shadow-lg shadow-purple-500/25;
+    @apply shadow-lg shadow-purple-500/25 dark:shadow-purple-900/40;
     animation: scaleIn 0.4s ease-out;
   }
-  
+
   .birth-chart-cell:hover {
     @apply scale-105;
   }
-  
+
   /* Number badge with pulse */
   .number-badge {
     @apply inline-flex items-center justify-center w-12 h-12 rounded-full;
     @apply bg-gradient-to-br from-purple-500 to-indigo-500 text-white;
-    @apply font-bold text-xl shadow-lg shadow-purple-500/25;
+    @apply font-bold text-xl shadow-lg shadow-purple-500/25 dark:shadow-purple-900/40;
     @apply transition-transform duration-200;
   }
-  
+
   .number-badge:hover {
     @apply scale-110;
   }
-  
+
   .number-badge.master {
     animation: pulse-glow 2s ease-in-out infinite;
   }
-  
+
   /* Zodiac card with selection animation */
   .zodiac-card {
-    @apply bg-white rounded-2xl p-6 border border-gray-100;
+    @apply bg-white dark:bg-card rounded-2xl p-6 border border-gray-100 dark:border-border;
     @apply shadow-sm;
     @apply transition-all duration-300 cursor-pointer;
     @apply hover:shadow-lg hover:shadow-purple-500/10 hover:-translate-y-1;
     @apply active:scale-[0.98];
   }
-  
+
   .zodiac-card.selected {
-    @apply border-purple-300 bg-purple-50 shadow-lg shadow-purple-500/20;
+    @apply border-purple-300 dark:border-purple-500 bg-purple-50 dark:bg-purple-500/20 shadow-lg shadow-purple-500/20 dark:shadow-purple-900/30;
     animation: scaleIn 0.3s ease-out;
   }
-  
+
   .zodiac-icon {
     @apply text-4xl mb-2;
     @apply transition-transform duration-300;
   }
-  
+
   .zodiac-card:hover .zodiac-icon {
     @apply scale-125;
   }
-  
+
   /* Result card with fade in */
   .result-card {
-    @apply bg-white rounded-2xl p-6 md:p-8 border border-gray-100 shadow-sm;
+    @apply bg-white dark:bg-card rounded-2xl p-6 md:p-8 border border-gray-100 dark:border-border shadow-sm;
     animation: fadeInUp 0.5s ease-out;
   }
-  
+
   .result-header {
-    @apply flex items-center gap-4 mb-6 pb-6 border-b border-gray-100;
+    @apply flex items-center gap-4 mb-6 pb-6 border-b border-gray-100 dark:border-border;
   }
-  
+
   .result-icon {
     @apply w-16 h-16 rounded-2xl flex items-center justify-center;
-    @apply bg-gradient-to-br from-purple-100 to-indigo-100;
+    @apply bg-gradient-to-br from-purple-100 to-indigo-100 dark:from-purple-500/20 dark:to-indigo-500/20;
     @apply transition-transform duration-300;
   }
-  
+
   .result-card:hover .result-icon {
     @apply scale-110 rotate-3;
   }
-  
+
   /* Loading skeleton with shimmer */
   .skeleton {
-    @apply bg-gray-200 rounded;
+    @apply bg-gray-200 dark:bg-muted rounded;
     background: linear-gradient(90deg, #e5e7eb 25%, #d1d5db 50%, #e5e7eb 75%);
     background-size: 200% 100%;
     animation: shimmer 1.5s infinite;
   }
-  
+
   /* Tab styles with transition */
   .tab-list {
-    @apply flex gap-2 p-1 bg-gray-100 rounded-xl;
+    @apply flex gap-2 p-1 bg-gray-100 dark:bg-muted rounded-xl;
   }
-  
+
   .tab-trigger {
     @apply flex-1 px-4 py-2 rounded-lg text-sm font-medium;
-    @apply text-gray-600 hover:text-gray-900;
+    @apply text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white;
     @apply transition-all duration-200;
   }
-  
+
   .tab-trigger[data-state="active"] {
-    @apply bg-white text-purple-700 shadow-sm;
+    @apply bg-white dark:bg-card text-purple-700 dark:text-purple-400 shadow-sm;
     animation: scaleIn 0.2s ease-out;
   }
-  
+
   /* Mobile menu styles */
   .mobile-menu-backdrop {
     @apply fixed inset-0 bg-black/50 z-40;
     @apply transition-opacity duration-300;
   }
-  
+
   .mobile-menu-backdrop.hidden {
     @apply opacity-0 pointer-events-none;
   }
-  
+
   .mobile-menu {
     @apply fixed top-0 right-0 h-full w-80 max-w-[85vw] bg-white z-50;
     @apply shadow-2xl;
     @apply transition-transform duration-300 ease-out;
     @apply transform translate-x-full;
   }
-  
+
   .mobile-menu.open {
     @apply translate-x-0;
   }
-  
+
   .mobile-menu-item {
     @apply flex items-center gap-3 px-6 py-4 text-gray-700;
     @apply border-b border-gray-100;
@@ -687,41 +739,41 @@
     @apply hover:bg-purple-50 hover:text-purple-700 hover:pl-8;
     @apply active:bg-purple-100;
   }
-  
+
   /* Hamburger menu animation */
   .hamburger {
     @apply w-6 h-5 relative flex flex-col justify-between;
   }
-  
+
   .hamburger span {
     @apply block w-full h-0.5 bg-gray-700 rounded-full;
     @apply transition-all duration-300 ease-out;
   }
-  
+
   .hamburger.open span:nth-child(1) {
     @apply rotate-45 translate-y-2;
   }
-  
+
   .hamburger.open span:nth-child(2) {
     @apply opacity-0 scale-0;
   }
-  
+
   .hamburger.open span:nth-child(3) {
     @apply -rotate-45 -translate-y-2;
   }
-  
+
   /* Page transition wrapper */
   .page-transition {
     animation: fadeIn 0.3s ease-out;
   }
-  
+
   /* Ripple effect for buttons */
   .ripple {
     @apply absolute rounded-full bg-white/30;
     @apply animate-ping;
     pointer-events: none;
   }
-  
+
   /* Tooltip animation */
   .tooltip {
     @apply absolute px-3 py-2 bg-gray-900 text-white text-sm rounded-lg;
@@ -729,41 +781,41 @@
     @apply transition-all duration-200;
     @apply -translate-y-2;
   }
-  
+
   .tooltip.show {
     @apply opacity-100 visible translate-y-0;
   }
-  
+
   /* Progress bar animation */
   .progress-bar {
     @apply h-2 bg-gray-200 rounded-full overflow-hidden;
   }
-  
+
   .progress-bar-fill {
     @apply h-full bg-gradient-to-r from-purple-500 to-indigo-500 rounded-full;
     @apply transition-all duration-500 ease-out;
   }
-  
+
   /* Notification badge bounce */
   .notification-badge {
     @apply absolute -top-1 -right-1 w-5 h-5 bg-red-500 text-white text-xs;
     @apply rounded-full flex items-center justify-center;
     animation: scaleIn 0.3s ease-out;
   }
-  
+
   /* Glow effect */
   .glow {
     @apply relative;
   }
-  
+
   .glow::after {
-    content: '';
+    content: "";
     @apply absolute inset-0 rounded-2xl;
     @apply bg-purple-500/20 blur-xl;
     @apply opacity-0 transition-opacity duration-300;
     z-index: -1;
   }
-  
+
   .glow:hover::after {
     @apply opacity-100;
   }

@@ -52,10 +52,10 @@ function ScoreCircle({ score, label, color }: { score: number; label: string; co
           />
         </svg>
         <div className="absolute inset-0 flex items-center justify-center">
-          <span className="text-2xl font-bold text-gray-900">{score}</span>
+          <span className="text-2xl font-bold text-gray-900 dark:text-white">{score}</span>
         </div>
       </div>
-      <p className="text-sm font-medium text-gray-600 mt-2">{label}</p>
+      <p className="text-sm font-medium text-gray-600 dark:text-gray-400 mt-2">{label}</p>
     </div>
   );
 }
@@ -63,23 +63,23 @@ function ScoreCircle({ score, label, color }: { score: number; label: string; co
 function PersonCard({ person, color }: { person: any; color: string }) {
   return (
     <div className={`p-6 rounded-2xl bg-gradient-to-br ${color} border animate-fade-in-up`}>
-      <h3 className="font-bold text-lg text-gray-900 mb-4">{person.name}</h3>
+      <h3 className="font-bold text-lg text-gray-900 dark:text-white mb-4">{person.name}</h3>
       <div className="space-y-3">
         <div className="flex justify-between">
-          <span className="text-gray-600">Năm sinh:</span>
-          <span className="font-semibold">{person.birthYear}</span>
+          <span className="text-gray-600 dark:text-gray-300">Năm sinh:</span>
+          <span className="font-semibold dark:text-gray-100">{person.birthYear}</span>
         </div>
         <div className="flex justify-between">
-          <span className="text-gray-600">Con giáp:</span>
-          <span className="font-semibold">{person.zodiacVN}</span>
+          <span className="text-gray-600 dark:text-gray-300">Con giáp:</span>
+          <span className="font-semibold dark:text-gray-100">{person.zodiacVN}</span>
         </div>
         <div className="flex justify-between">
-          <span className="text-gray-600">Mệnh:</span>
-          <span className="font-semibold">{person.element}</span>
+          <span className="text-gray-600 dark:text-gray-300">Mệnh:</span>
+          <span className="font-semibold dark:text-gray-100">{person.element}</span>
         </div>
         <div className="flex justify-between">
-          <span className="text-gray-600">Số chủ đạo:</span>
-          <span className="font-semibold text-purple-700">{person.lifePathNumber}</span>
+          <span className="text-gray-600 dark:text-gray-300">Số chủ đạo:</span>
+          <span className="font-semibold text-purple-700 dark:text-purple-400">{person.lifePathNumber}</span>
         </div>
       </div>
     </div>
@@ -98,17 +98,17 @@ function PersonForm({
   icon: React.ReactNode;
 }) {
   return (
-    <div className="p-6 bg-white rounded-2xl border border-pink-100 shadow-sm">
+    <div className="p-6 bg-white dark:bg-card rounded-2xl border border-pink-100 dark:border-pink-900/30 shadow-sm">
       <div className="flex items-center gap-3 mb-6">
-        <div className="w-10 h-10 rounded-full bg-pink-100 flex items-center justify-center">
+        <div className="w-10 h-10 rounded-full bg-pink-100 dark:bg-pink-500/20 flex items-center justify-center">
           {icon}
         </div>
-        <h3 className="font-bold text-lg text-gray-900">{title}</h3>
+        <h3 className="font-bold text-lg text-gray-900 dark:text-white">{title}</h3>
       </div>
       <div className="space-y-4">
         {/* Họ và tên */}
         <div>
-          <Label className="text-gray-700 font-medium">
+          <Label className="text-gray-700 dark:text-gray-200 font-medium">
             Họ và tên <span className="text-red-500">*</span>
           </Label>
           <Input
@@ -116,13 +116,13 @@ function PersonForm({
             placeholder="Nhập họ tên đầy đủ"
             value={person.fullName}
             onChange={(e) => setPerson({ ...person, fullName: e.target.value })}
-            className="mt-2 h-11 bg-gray-50 border-gray-200 focus:bg-white"
+            className="mt-2 h-11 bg-gray-50 dark:bg-muted/50 border-gray-200 dark:border-border dark:text-foreground focus:bg-white dark:focus:bg-card"
           />
         </div>
         
         {/* Ngày sinh - tách biệt */}
         <div>
-          <Label className="text-gray-700 font-medium">
+          <Label className="text-gray-700 dark:text-gray-200 font-medium">
             Ngày sinh <span className="text-red-500">*</span>
           </Label>
           <div className="grid grid-cols-3 gap-2 mt-2">
@@ -252,17 +252,17 @@ export default function Compatibility() {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="bg-gradient-to-b from-pink-50 to-white py-12">
+      <section className="bg-gradient-to-b from-pink-50 to-white dark:from-background dark:to-background py-12">
         <div className="container">
           <div className="max-w-2xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-pink-100 text-pink-700 text-sm font-medium mb-6 animate-fade-in-down">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-pink-100 dark:bg-pink-500/20 text-pink-700 dark:text-pink-300 text-sm font-medium mb-6 animate-fade-in-down border border-transparent dark:border-pink-500/30">
               <Heart className="w-4 h-4" />
               Tương hợp tình duyên
             </div>
-            <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 animate-fade-in-up">
+            <h1 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4 animate-fade-in-up">
               Xem Độ Tương Hợp
             </h1>
-            <p className="text-gray-600 animate-fade-in-up animate-delay-100">
+            <p className="text-gray-600 dark:text-gray-300 animate-fade-in-up animate-delay-100">
               Khám phá mức độ hòa hợp giữa hai người dựa trên Tử Vi, Ngũ Hành và Thần Số Học.
               Nhận phân tích chi tiết và lời khuyên từ AI.
             </p>
@@ -324,7 +324,7 @@ export default function Compatibility() {
                     type="button"
                     variant="outline"
                     onClick={handleAnalyze}
-                    className="h-12 px-8 border-purple-200 text-purple-700 hover:bg-purple-50"
+                    className="h-12 px-8 border-purple-200 dark:border-purple-500/30 text-purple-700 dark:text-purple-300 hover:bg-purple-50 dark:hover:bg-purple-500/10"
                     disabled={isLoading}
                   >
                     {analyzeMutation.isPending ? (
@@ -351,7 +351,7 @@ export default function Compatibility() {
                     setResult(null);
                     setAnalysis("");
                   }}
-                  className="text-gray-600 hover:text-gray-900"
+                  className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"
                 >
                   <ArrowLeft className="w-4 h-4 mr-2" />
                   Quay lại
@@ -361,11 +361,11 @@ export default function Compatibility() {
                 <div className="grid md:grid-cols-2 gap-6">
                   <PersonCard 
                     person={result?.person1} 
-                    color="from-pink-50 to-rose-50 border-pink-200" 
+                    color="from-pink-50 to-rose-50 dark:from-pink-900/20 dark:to-rose-900/20 border-pink-200 dark:border-pink-800/50" 
                   />
                   <PersonCard 
                     person={result?.person2} 
-                    color="from-purple-50 to-indigo-50 border-purple-200" 
+                    color="from-purple-50 to-indigo-50 dark:from-purple-900/20 dark:to-indigo-900/20 border-purple-200 dark:border-purple-800/50" 
                   />
                 </div>
 

@@ -141,15 +141,15 @@ export default function Admin() {
                 <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-gradient-to-br from-purple-500 to-amber-500 flex items-center justify-center">
                   <Shield className="w-10 h-10 text-white" />
                 </div>
-                <h1 className="text-2xl font-bold text-gray-900 mb-2">
+                <h1 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
                   Đăng Nhập Admin
                 </h1>
-                <p className="text-gray-500">
+                <p className="text-gray-500 dark:text-gray-400">
                   Nhập thông tin đăng nhập để truy cập trang quản trị
                 </p>
               </div>
 
-              <form onSubmit={handleAdminLogin} className="bg-white rounded-2xl shadow-lg p-6 space-y-4 border border-gray-100">
+              <form onSubmit={handleAdminLogin} className="bg-white dark:bg-card rounded-2xl shadow-lg p-6 space-y-4 border border-gray-100 dark:border-border">
                 <div>
                   <Label htmlFor="loginUsername" className="form-label">Tên đăng nhập</Label>
                   <Input
@@ -218,10 +218,10 @@ export default function Admin() {
               <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-red-100 flex items-center justify-center">
                 <XCircle className="w-10 h-10 text-red-600" />
               </div>
-              <h1 className="text-2xl font-bold text-gray-900 mb-4">
+              <h1 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
                 Không Có Quyền Truy Cập
               </h1>
-              <p className="text-gray-500 mb-8">
+              <p className="text-gray-500 dark:text-gray-400 mb-8">
                 Trang này chỉ dành cho quản trị viên. Vui lòng liên hệ admin nếu bạn cần quyền truy cập.
               </p>
               <Link href="/">
@@ -237,17 +237,17 @@ export default function Admin() {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="bg-gradient-to-b from-slate-50 to-white py-12">
+      <section className="bg-gradient-to-b from-slate-50 to-white dark:from-background dark:to-background py-12">
         <div className="container">
           <div className="max-w-2xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-100 text-slate-700 text-sm font-medium mb-6">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-100 dark:bg-slate-500/20 text-slate-700 dark:text-slate-300 text-sm font-medium mb-6 animate-fade-in-down border border-transparent dark:border-slate-500/30">
               <Settings className="w-4 h-4" />
               Quản trị hệ thống
             </div>
-            <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h1 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
               Cấu Hình LLM
             </h1>
-            <p className="text-gray-600">
+            <p className="text-gray-600 dark:text-gray-300">
               Tùy chỉnh kết nối đến OpenAI-compatible API cho các tính năng AI.
             </p>
           </div>
@@ -260,8 +260,8 @@ export default function Admin() {
           <div className="max-w-2xl mx-auto space-y-6">
             {/* Current Status */}
             <div className={`p-6 rounded-2xl border ${currentSettings
-              ? "bg-green-50 border-green-200"
-              : "bg-blue-50 border-blue-200"
+              ? "bg-green-50 dark:bg-green-500/10 border-green-200 dark:border-green-500/30"
+              : "bg-blue-50 dark:bg-blue-500/10 border-blue-200 dark:border-blue-500/30"
               }`}>
               <div className="flex items-center gap-3">
                 {currentSettings ? (
@@ -270,10 +270,10 @@ export default function Admin() {
                   <Settings className="w-6 h-6 text-blue-600" />
                 )}
                 <div>
-                  <h3 className={`font-bold ${currentSettings ? "text-green-900" : "text-blue-900"}`}>
+                  <h3 className={`font-bold ${currentSettings ? "text-green-900 dark:text-green-300" : "text-blue-900 dark:text-blue-300"}`}>
                     {currentSettings ? "Đang sử dụng LLM tùy chỉnh" : "Đang sử dụng LLM mặc định"}
                   </h3>
-                  <p className={`text-sm ${currentSettings ? "text-green-700" : "text-blue-700"}`}>
+                  <p className={`text-sm ${currentSettings ? "text-green-700 dark:text-green-400" : "text-blue-700 dark:text-blue-400"}`}>
                     {currentSettings
                       ? `Model: ${currentSettings.model} | URL: ${currentSettings.baseUrl}`
                       : "Hệ thống đang sử dụng LLM built-in của Manus"
@@ -286,12 +286,12 @@ export default function Admin() {
             {/* Configuration Form */}
             <div className="result-card">
               <div className="result-header mb-6">
-                <div className="result-icon bg-gradient-to-br from-slate-100 to-gray-100">
-                  <Settings className="w-8 h-8 text-slate-600" />
+                <div className="result-icon bg-gradient-to-br from-slate-100 to-gray-100 dark:from-slate-700/50 dark:to-gray-700/50">
+                  <Settings className="w-8 h-8 text-slate-600 dark:text-slate-300" />
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-gray-900">Cấu Hình OpenAI-Compatible API</h3>
-                  <p className="text-gray-500">Nhập thông tin kết nối đến API tương thích OpenAI</p>
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-white">Cấu Hình OpenAI-Compatible API</h3>
+                  <p className="text-gray-500 dark:text-gray-400">Nhập thông tin kết nối đến API tương thích OpenAI</p>
                 </div>
               </div>
 
@@ -402,24 +402,32 @@ export default function Admin() {
             </div>
 
             {/* Help Section */}
-            <div className="p-6 bg-blue-50 rounded-2xl border border-blue-100">
-              <h4 className="font-bold text-blue-900 mb-4">Hướng Dẫn Cấu Hình</h4>
-              <div className="space-y-3 text-sm text-blue-800">
+            <div className="p-6 bg-blue-50 dark:bg-blue-500/10 rounded-2xl border border-blue-100 dark:border-blue-500/20">
+              <h4 className="font-bold text-blue-900 dark:text-blue-300 mb-4">Hướng Dẫn Cấu Hình</h4>
+              <div className="space-y-3 text-sm text-blue-800 dark:text-blue-200">
                 <div>
                   <span className="font-semibold">OpenAI:</span>
-                  <span className="ml-2">Base URL: <code className="bg-blue-100 px-1 rounded">https://api.openai.com/v1</code></span>
+                  <span className="ml-2">Base URL: <code className="bg-blue-100 dark:bg-blue-500/20 px-1 rounded">https://api.openai.com/v1</code></span>
                 </div>
                 <div>
                   <span className="font-semibold">Azure OpenAI:</span>
-                  <span className="ml-2">Base URL: <code className="bg-blue-100 px-1 rounded">https://YOUR_RESOURCE.openai.azure.com/...</code></span>
+                  <span className="ml-2">Base URL: <code className="bg-blue-100 dark:bg-blue-500/20 px-1 rounded">https://YOUR_RESOURCE.openai.azure.com/...</code></span>
+                </div>
+                <div>
+                  <span className="font-semibold">MiniMax:</span>
+                  <span className="ml-2">Base URL: <code className="bg-blue-100 dark:bg-blue-500/20 px-1 rounded">https://api.minimax.io/v1</code> | Models: <code className="bg-blue-100 dark:bg-blue-500/20 px-1 rounded">MiniMax-M2.7</code>, M2.5, M2.1, M2, M1</span>
+                </div>
+                <div>
+                  <span className="font-semibold">OpenRouter:</span>
+                  <span className="ml-2">Base URL: <code className="bg-blue-100 dark:bg-blue-500/20 px-1 rounded">https://openrouter.ai/api/v1</code></span>
                 </div>
                 <div>
                   <span className="font-semibold">Ollama (Local):</span>
-                  <span className="ml-2">Base URL: <code className="bg-blue-100 px-1 rounded">http://localhost:11434/v1</code></span>
+                  <span className="ml-2">Base URL: <code className="bg-blue-100 dark:bg-blue-500/20 px-1 rounded">http://localhost:11434/v1</code></span>
                 </div>
                 <div>
                   <span className="font-semibold">LM Studio:</span>
-                  <span className="ml-2">Base URL: <code className="bg-blue-100 px-1 rounded">http://localhost:1234/v1</code></span>
+                  <span className="ml-2">Base URL: <code className="bg-blue-100 dark:bg-blue-500/20 px-1 rounded">http://localhost:1234/v1</code></span>
                 </div>
               </div>
             </div>

@@ -191,8 +191,8 @@ export default function TuVi() {
       <div className="relative min-h-[calc(100vh-64px)] pb-20">
         {/* Background Decorative Elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none -z-10">
-          <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-purple-200/20 rounded-full blur-[100px] -translate-x-1/2 -translate-y-1/2 mix-blend-multiply" />
-          <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-amber-200/20 rounded-full blur-[100px] translate-x-1/2 translate-y-1/2 mix-blend-multiply" />
+          <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-purple-200/20 dark:bg-purple-500/10 rounded-full blur-[100px] -translate-x-1/2 -translate-y-1/2 mix-blend-multiply dark:mix-blend-normal" />
+          <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-amber-200/20 dark:bg-amber-500/10 rounded-full blur-[100px] translate-x-1/2 translate-y-1/2 mix-blend-multiply dark:mix-blend-normal" />
         </div>
 
         <div className="container pt-8 md:pt-12">
@@ -212,29 +212,29 @@ export default function TuVi() {
                     initial={{ scale: 0.9, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
                     transition={{ delay: 0.1, duration: 0.5 }}
-                    className="inline-flex items-center gap-2 px-6 py-2 bg-gradient-to-r from-purple-100 to-amber-100 border border-white/50 rounded-full text-purple-800 text-sm font-medium mb-6 shadow-sm backdrop-blur-sm"
+                    className="inline-flex items-center gap-2 px-6 py-2 bg-gradient-to-r from-purple-100 to-amber-100 dark:from-purple-500/20 dark:to-amber-500/20 border border-white/50 dark:border-purple-400/30 rounded-full text-purple-800 dark:text-purple-300 text-sm font-medium mb-6 shadow-sm backdrop-blur-sm"
                   >
                     <Star className="w-4 h-4 fill-amber-500 text-amber-500" />
                     <span>Thuật toán Tử Vi Đẩu Số & AI</span>
                     <Sparkles className="w-4 h-4 text-purple-600" />
                   </motion.div>
 
-                  <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-purple-800 via-indigo-700 to-purple-800 bg-clip-text text-transparent mb-4 leading-tight">
+                  <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-purple-800 via-indigo-700 to-purple-800 dark:from-purple-400 dark:via-indigo-400 dark:to-purple-400 bg-clip-text text-transparent mb-4 leading-tight">
                     Khám Phá Vận Mệnh
                   </h1>
-                  <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+                  <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed">
                     Kết hợp tinh hoa tử vi truyền thống và trí tuệ nhân tạo để giải mã chi tiết cuộc đời bạn.
                   </p>
                 </div>
 
                 {/* Form Card */}
-                <div className="bg-white/80 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/50 p-6 md:p-10 relative overflow-hidden group">
+                <div className="bg-white/80 dark:bg-card/90 backdrop-blur-xl rounded-3xl shadow-2xl border border-white/50 dark:border-border p-6 md:p-10 relative overflow-hidden group">
                   <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-purple-500 via-amber-500 to-purple-500 opacity-50" />
 
                   <form onSubmit={handleSubmit} className="space-y-8 relative z-10">
                     {/* Họ tên */}
                     <div className="space-y-3">
-                      <Label htmlFor="fullName" className="text-base font-semibold text-gray-800 flex items-center gap-2">
+                      <Label htmlFor="fullName" className="text-base font-semibold text-gray-800 dark:text-gray-200 flex items-center gap-2">
                         <User className="w-4 h-4 text-purple-500" />
                         Họ và tên
                       </Label>
@@ -244,7 +244,7 @@ export default function TuVi() {
                           placeholder="Ví dụ: Nguyễn Văn A"
                           value={formData.fullName}
                           onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                          className="h-14 pl-4 bg-gray-50/50 border-gray-200 focus:bg-white focus:ring-2 focus:ring-purple-200 transition-all rounded-xl text-lg shadow-sm group-hover/input:border-purple-300"
+                          className="h-14 pl-4 bg-gray-50/50 dark:bg-muted/50 border-gray-200 dark:border-border focus:bg-white dark:focus:bg-card focus:ring-2 focus:ring-purple-200 transition-all rounded-xl text-lg shadow-sm group-hover/input:border-purple-300 dark:text-foreground"
                         />
                       </div>
                     </div>
@@ -252,7 +252,7 @@ export default function TuVi() {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                       {/* Giới tính */}
                       <div className="space-y-3">
-                        <Label className="text-base font-semibold text-gray-800 flex items-center gap-2">
+                        <Label className="text-base font-semibold text-gray-800 dark:text-gray-200 flex items-center gap-2">
                           <User className="w-4 h-4 text-purple-500" />
                           Giới tính
                         </Label>
@@ -260,21 +260,21 @@ export default function TuVi() {
                           <div
                             onClick={() => setFormData({ ...formData, gender: 'male' })}
                             className={`cursor-pointer rounded-xl p-4 flex flex-col items-center justify-center gap-2 transition-all duration-200 border-2 ${formData.gender === 'male'
-                              ? 'bg-blue-50/80 border-blue-500 text-blue-700 shadow-md transform scale-[1.02]'
-                              : 'bg-gray-50 border-transparent hover:bg-gray-100 hover:border-gray-200'
+                              ? 'bg-blue-50/80 dark:bg-blue-500/20 border-blue-500 text-blue-700 dark:text-blue-300 shadow-md transform scale-[1.02]'
+                              : 'bg-gray-50 dark:bg-muted/50 border-transparent dark:border-border text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-muted hover:border-gray-200'
                               }`}
                           >
-                            <User className="w-6 h-6 text-blue-600" />
+                            <User className="w-6 h-6 text-blue-600 dark:text-blue-400" />
                             <span className="font-medium">Nam</span>
                           </div>
                           <div
                             onClick={() => setFormData({ ...formData, gender: 'female' })}
                             className={`cursor-pointer rounded-xl p-4 flex flex-col items-center justify-center gap-2 transition-all duration-200 border-2 ${formData.gender === 'female'
-                              ? 'bg-pink-50/80 border-pink-500 text-pink-700 shadow-md transform scale-[1.02]'
-                              : 'bg-gray-50 border-transparent hover:bg-gray-100 hover:border-gray-200'
+                              ? 'bg-pink-50/80 dark:bg-pink-500/20 border-pink-500 text-pink-700 dark:text-pink-300 shadow-md transform scale-[1.02]'
+                              : 'bg-gray-50 dark:bg-muted/50 border-transparent dark:border-border text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-muted hover:border-gray-200'
                               }`}
                           >
-                            <User className="w-6 h-6 text-pink-600" />
+                            <User className="w-6 h-6 text-pink-600 dark:text-pink-400" />
                             <span className="font-medium">Nữ</span>
                           </div>
                         </div>
@@ -282,7 +282,7 @@ export default function TuVi() {
 
                       {/* Loại lịch */}
                       <div className="space-y-3">
-                        <Label className="text-base font-semibold text-gray-800 flex items-center gap-2">
+                        <Label className="text-base font-semibold text-gray-800 dark:text-gray-200 flex items-center gap-2">
                           <Calendar className="w-4 h-4 text-purple-500" />
                           Loại lịch
                         </Label>
@@ -290,8 +290,8 @@ export default function TuVi() {
                           <div
                             onClick={() => setFormData({ ...formData, calendarType: 'solar' })}
                             className={`cursor-pointer rounded-xl p-4 flex flex-col items-center justify-center gap-2 transition-all duration-200 border-2 ${formData.calendarType === 'solar'
-                              ? 'bg-amber-50/80 border-amber-500 text-amber-700 shadow-md transform scale-[1.02]'
-                              : 'bg-gray-50 border-transparent hover:bg-gray-100 hover:border-gray-200'
+                              ? 'bg-amber-50/80 dark:bg-amber-500/20 border-amber-500 text-amber-700 dark:text-amber-300 shadow-md transform scale-[1.02]'
+                              : 'bg-gray-50 dark:bg-muted/50 border-transparent dark:border-border text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-muted hover:border-gray-200'
                               }`}
                           >
                             <Sun className="w-6 h-6" />
@@ -300,8 +300,8 @@ export default function TuVi() {
                           <div
                             onClick={() => setFormData({ ...formData, calendarType: 'lunar' })}
                             className={`cursor-pointer rounded-xl p-4 flex flex-col items-center justify-center gap-2 transition-all duration-200 border-2 ${formData.calendarType === 'lunar'
-                              ? 'bg-indigo-50/80 border-indigo-500 text-indigo-700 shadow-md transform scale-[1.02]'
-                              : 'bg-gray-50 border-transparent hover:bg-gray-100 hover:border-gray-200'
+                              ? 'bg-indigo-50/80 dark:bg-indigo-500/20 border-indigo-500 text-indigo-700 dark:text-indigo-300 shadow-md transform scale-[1.02]'
+                              : 'bg-gray-50 dark:bg-muted/50 border-transparent dark:border-border text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-muted hover:border-gray-200'
                               }`}
                           >
                             <Moon className="w-6 h-6" />

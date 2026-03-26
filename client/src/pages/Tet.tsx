@@ -29,11 +29,11 @@ function XongDatTab() {
       {!result ? (
         <div className="result-card max-w-md mx-auto">
           <div className="text-center mb-6">
-            <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-red-100 flex items-center justify-center">
-              <Home className="w-8 h-8 text-red-600" />
+            <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-red-100 dark:bg-red-500/20 flex items-center justify-center">
+              <Home className="w-8 h-8 text-red-600 dark:text-red-400" />
             </div>
-            <h3 className="text-xl font-bold text-gray-900">Xông Đất Đầu Năm</h3>
-            <p className="text-gray-500">Tìm tuổi hợp xông đất cho gia chủ</p>
+            <h3 className="text-xl font-bold text-gray-900 dark:text-white">Xông Đất Đầu Năm</h3>
+            <p className="text-gray-500 dark:text-gray-400">Tìm tuổi hợp xông đất cho gia chủ</p>
           </div>
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
@@ -74,12 +74,12 @@ function XongDatTab() {
           <div className="result-card">
             <div className="result-header">
               <div className="result-icon bg-gradient-to-br from-red-100 to-pink-100">
-                <Home className="w-8 h-8 text-red-600" />
-              </div>
-              <div>
-                <h3 className="text-xl font-bold text-gray-900">Kết Quả Xông Đất</h3>
-                <p className="text-gray-500">Gia chủ tuổi {result.ownerZodiac} - Mệnh {result.ownerElement}</p>
-              </div>
+                <Home className="w-8 h-8 text-red-600 dark:text-red-400" />
+            </div>
+            <div>
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white">Kết Quả Xông Đất</h3>
+              <p className="text-gray-500 dark:text-gray-400">Gia chủ tuổi {result.ownerZodiac} - Mệnh {result.ownerElement}</p>
+            </div>
             </div>
             
             <div className="grid md:grid-cols-2 gap-4 mb-6">
@@ -115,12 +115,12 @@ function XongDatTab() {
           <div className="result-card">
             <div className="result-header">
               <div className="result-icon bg-gradient-to-br from-amber-100 to-yellow-100">
-                <Sparkles className="w-8 h-8 text-amber-600" />
-              </div>
-              <div>
-                <h3 className="text-xl font-bold text-gray-900">Hướng Dẫn Chi Tiết</h3>
-                <p className="text-gray-500">Phân tích từ trí tuệ nhân tạo</p>
-              </div>
+                <Sparkles className="w-8 h-8 text-amber-600 dark:text-amber-400" />
+            </div>
+            <div>
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white">Hướng Dẫn Chi Tiết</h3>
+              <p className="text-gray-500 dark:text-gray-400">Phân tích từ trí tuệ nhân tạo</p>
+            </div>
             </div>
             <div className="prose prose-gray max-w-none">
               <Streamdown>{result.aiAdvice}</Streamdown>
@@ -144,11 +144,11 @@ function LuckyColorsTab() {
     <div className="space-y-6">
       <div className="result-card max-w-md mx-auto">
         <div className="text-center mb-6">
-          <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-amber-100 flex items-center justify-center">
-            <Palette className="w-8 h-8 text-amber-600" />
+          <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-amber-100 dark:bg-amber-500/20 flex items-center justify-center">
+            <Palette className="w-8 h-8 text-amber-600 dark:text-amber-400" />
           </div>
-          <h3 className="text-xl font-bold text-gray-900">Màu Sắc May Mắn</h3>
-          <p className="text-gray-500">Tìm màu sắc hợp mệnh cho năm mới</p>
+          <h3 className="text-xl font-bold text-gray-900 dark:text-white">Màu Sắc May Mắn</h3>
+          <p className="text-gray-500 dark:text-gray-400">Tìm màu sắc hợp mệnh cho năm mới</p>
         </div>
         <div>
           <Label htmlFor="colorYear" className="form-label">Năm sinh của bạn</Label>
@@ -169,11 +169,11 @@ function LuckyColorsTab() {
         <div className="result-card max-w-2xl mx-auto">
           <div className="result-header">
             <div className="result-icon bg-gradient-to-br from-amber-100 to-yellow-100">
-              <Palette className="w-8 h-8 text-amber-600" />
+              <Palette className="w-8 h-8 text-amber-600 dark:text-amber-400" />
             </div>
             <div>
-              <h3 className="text-xl font-bold text-gray-900">Màu Sắc Cho {luckyColors.data.zodiac}</h3>
-              <p className="text-gray-500">Mệnh {luckyColors.data.element}</p>
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white">Màu Sắc Cho {luckyColors.data.zodiac}</h3>
+              <p className="text-gray-500 dark:text-gray-400">Mệnh {luckyColors.data.element}</p>
             </div>
           </div>
           
@@ -226,11 +226,11 @@ function LuckyMoneyTab() {
     <div className="space-y-6">
       <div className="result-card max-w-md mx-auto">
         <div className="text-center mb-6">
-          <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-yellow-100 flex items-center justify-center">
-            <Banknote className="w-8 h-8 text-yellow-600" />
+          <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-yellow-100 dark:bg-yellow-500/20 flex items-center justify-center">
+            <Banknote className="w-8 h-8 text-yellow-600 dark:text-yellow-400" />
           </div>
-          <h3 className="text-xl font-bold text-gray-900">Gợi Ý Lì Xì</h3>
-          <p className="text-gray-500">Số tiền lì xì may mắn theo mệnh người nhận</p>
+          <h3 className="text-xl font-bold text-gray-900 dark:text-white">Gợi Ý Lì Xì</h3>
+          <p className="text-gray-500 dark:text-gray-400">Số tiền lì xì may mắn theo mệnh người nhận</p>
         </div>
         <div>
           <Label htmlFor="recipientYear" className="form-label">Năm sinh người nhận</Label>
@@ -251,16 +251,16 @@ function LuckyMoneyTab() {
         <div className="result-card max-w-2xl mx-auto">
           <div className="result-header">
             <div className="result-icon bg-gradient-to-br from-yellow-100 to-amber-100">
-              <Banknote className="w-8 h-8 text-yellow-600" />
+              <Banknote className="w-8 h-8 text-yellow-600 dark:text-yellow-400" />
             </div>
             <div>
-              <h3 className="text-xl font-bold text-gray-900">Lì Xì Cho {luckyMoney.data.zodiac}</h3>
-              <p className="text-gray-500">Mệnh {luckyMoney.data.element} - Số may mắn: {luckyMoney.data.luckyNumbers.join(", ")}</p>
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white">Lì Xì Cho {luckyMoney.data.zodiac}</h3>
+              <p className="text-gray-500 dark:text-gray-400">Mệnh {luckyMoney.data.element} - Số may mắn: {luckyMoney.data.luckyNumbers.join(", ")}</p>
             </div>
           </div>
           
           <div>
-            <h4 className="font-semibold text-gray-900 mb-4">Số Tiền Gợi Ý</h4>
+            <h4 className="font-semibold text-gray-900 dark:text-white mb-4">Số Tiền Gợi Ý</h4>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
               {luckyMoney.data.suggestedAmounts.slice(0, 8).map((amount: number) => (
                 <div
@@ -273,7 +273,7 @@ function LuckyMoneyTab() {
                 </div>
               ))}
             </div>
-            <p className="text-sm text-gray-500 mt-4">
+            <p className="text-sm text-gray-500 dark:text-gray-400 mt-4">
               Các số tiền trên được tính toán dựa trên mệnh và số may mắn của người nhận
             </p>
           </div>
@@ -307,8 +307,8 @@ function FullAdviceTab() {
             <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-gradient-to-r from-red-500 to-pink-500 flex items-center justify-center">
               <Gift className="w-8 h-8 text-white" />
             </div>
-            <h3 className="text-xl font-bold text-gray-900">Tư Vấn Tết Toàn Diện</h3>
-            <p className="text-gray-500">Nhận tư vấn đầy đủ về màu sắc, lì xì và phong thủy Tết</p>
+            <h3 className="text-xl font-bold text-gray-900 dark:text-white">Tư Vấn Tết Toàn Diện</h3>
+            <p className="text-gray-500 dark:text-gray-400">Nhận tư vấn đầy đủ về màu sắc, lì xì và phong thủy Tết</p>
           </div>
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
@@ -347,20 +347,20 @@ function FullAdviceTab() {
           </Button>
 
           <div className="result-card text-center">
-            <h2 className="text-2xl font-bold text-gray-900 mb-2">
+            <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
               Tư Vấn Tết 2026 Cho {result.zodiac}
             </h2>
-            <p className="text-gray-500">Mệnh {result.element}</p>
+            <p className="text-gray-500 dark:text-gray-400">Mệnh {result.element}</p>
           </div>
 
           <div className="result-card">
             <div className="result-header">
               <div className="result-icon bg-gradient-to-br from-red-100 to-pink-100">
-                <Sparkles className="w-8 h-8 text-red-600" />
+                <Sparkles className="w-8 h-8 text-red-600 dark:text-red-400" />
               </div>
               <div>
-                <h3 className="text-xl font-bold text-gray-900">Tư Vấn Chi Tiết</h3>
-                <p className="text-gray-500">Phân tích từ trí tuệ nhân tạo</p>
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white">Tư Vấn Chi Tiết</h3>
+                <p className="text-gray-500 dark:text-gray-400">Phân tích từ trí tuệ nhân tạo</p>
               </div>
             </div>
             <div className="prose prose-gray max-w-none">
@@ -377,17 +377,17 @@ export default function Tet() {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="bg-gradient-to-b from-red-50 to-white py-12">
+      <section className="bg-gradient-to-b from-red-50 to-white dark:from-background dark:to-background py-12">
         <div className="container">
           <div className="max-w-2xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-100 text-red-700 text-sm font-medium mb-6">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-100 dark:bg-red-500/20 text-red-700 dark:text-red-300 text-sm font-medium mb-6 border border-transparent dark:border-red-500/30">
               <Gift className="w-4 h-4" />
               Năm Bính Ngọ 2026
             </div>
-            <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h1 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
               Công Cụ Tết 2026
             </h1>
-            <p className="text-gray-600">
+            <p className="text-gray-600 dark:text-gray-300">
               Xông đất, màu may mắn và gợi ý lì xì theo mệnh - Chuẩn bị cho một năm mới thịnh vượng.
             </p>
           </div>

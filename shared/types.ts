@@ -68,6 +68,20 @@ export interface NumerologyResult {
   birthDayNumber: number;
   birthChart: number[][];
   masterNumbers: number[];
+  lifePathCycles: {
+    cycle1: number;
+    cycle2: number;
+    cycle3: number;
+  };
+  pinnacles: number[]; // 4 pinnacles
+  challenges: number[]; // 4 challenges
+  personalYear: number;
+  personalMonth: number; // Current month
+  cycleForecast: {
+    year: number;
+    personalYear: number;
+    description: string;
+  }[];
 }
 
 // Zodiac Types
@@ -214,4 +228,19 @@ export const PURPOSE_NAMES: Record<AuspiciousPurpose, string> = {
   travel: "Xuất hành",
   moving_house: "Nhập trạch",
   other: "Khác",
+};
+
+export const NUMBER_MEANINGS: Record<number, { title: string; keywords: string[] }> = {
+  1: { title: "Người Tiên Phong", keywords: ["Độc lập", "Lãnh đạo", "Sáng tạo", "Tự tin"] },
+  2: { title: "Người Hòa Giải", keywords: ["Hợp tác", "Nhạy cảm", "Ngoại giao", "Kiên nhẫn"] },
+  3: { title: "Người Sáng Tạo", keywords: ["Biểu đạt", "Nghệ thuật", "Lạc quan", "Giao tiếp"] },
+  4: { title: "Người Xây Dựng", keywords: ["Ổn định", "Thực tế", "Kỷ luật", "Chăm chỉ"] },
+  5: { title: "Người Tự Do", keywords: ["Phiêu lưu", "Linh hoạt", "Đa năng", "Tò mò"] },
+  6: { title: "Người Chăm Sóc", keywords: ["Trách nhiệm", "Yêu thương", "Gia đình", "Hài hòa"] },
+  7: { title: "Người Tìm Kiếm", keywords: ["Phân tích", "Tâm linh", "Trí tuệ", "Nội tâm"] },
+  8: { title: "Người Thành Đạt", keywords: ["Quyền lực", "Thành công", "Vật chất", "Tham vọng"] },
+  9: { title: "Người Nhân Đạo", keywords: ["Bác ái", "Lý tưởng", "Hoàn thiện", "Cho đi"] },
+  11: { title: "Người Trực Giác", keywords: ["Trực giác", "Tâm linh", "Soi sáng", "Nhạy cảm cao"] },
+  22: { title: "Người Kiến Tạo", keywords: ["Tầm nhìn lớn", "Thực hiện", "Xây dựng", "Di sản"] },
+  33: { title: "Người Thầy", keywords: ["Dạy dỗ", "Chữa lành", "Hy sinh", "Yêu thương vô điều kiện"] },
 };

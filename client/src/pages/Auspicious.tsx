@@ -39,20 +39,20 @@ function PurposeCard({
     <button 
       className={`p-4 rounded-xl border-2 text-left transition-all ${
         isSelected 
-          ? "border-emerald-500 bg-emerald-50" 
-          : "border-gray-200 hover:border-emerald-200 bg-white"
+          ? "border-emerald-500 bg-emerald-50 dark:bg-emerald-500/20" 
+          : "border-gray-200 dark:border-border hover:border-emerald-200 dark:hover:border-emerald-500/50 bg-white dark:bg-card"
       }`}
       onClick={onClick}
     >
       <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-3 ${
         isSelected 
           ? "bg-emerald-500 text-white" 
-          : "bg-emerald-100 text-emerald-600"
+          : "bg-emerald-100 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400"
       }`}>
         <Icon className="w-6 h-6" />
       </div>
-      <div className="font-semibold text-gray-900">{purpose.name}</div>
-      <div className="text-xs text-gray-500 mt-1">
+      <div className="font-semibold text-gray-900 dark:text-white">{purpose.name}</div>
+      <div className="text-xs text-gray-500 dark:text-gray-400 mt-1">
         {purpose.description}
       </div>
     </button>
@@ -100,17 +100,17 @@ export default function Auspicious() {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="bg-gradient-to-b from-emerald-50 to-white py-12">
+      <section className="bg-gradient-to-b from-emerald-50 to-white dark:from-background dark:to-background py-12">
         <div className="container">
           <div className="max-w-2xl mx-auto text-center">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-100 text-emerald-700 text-sm font-medium mb-6">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-emerald-100 dark:bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 text-sm font-medium mb-6 border border-transparent dark:border-emerald-500/30">
               <Calendar className="w-4 h-4" />
               Chọn ngày theo phong thủy
             </div>
-            <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h1 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
               Ngày Đẹp Giờ Tốt
             </h1>
-            <p className="text-gray-600">
+            <p className="text-gray-600 dark:text-gray-300">
               Chọn ngày tốt theo mục đích và xem giờ hoàng đạo cho các việc quan trọng trong cuộc sống.
             </p>
           </div>
@@ -124,10 +124,10 @@ export default function Auspicious() {
             <div className="space-y-8 max-w-4xl mx-auto">
               {/* Purpose Selection */}
               <div>
-                <h2 className="text-xl font-bold text-gray-900 text-center mb-2">
+                <h2 className="text-xl font-bold text-gray-900 dark:text-white text-center mb-2">
                   Chọn Mục Đích
                 </h2>
-                <p className="text-center text-gray-500 mb-6">
+                <p className="text-center text-gray-500 dark:text-gray-400 mb-6">
                   Bạn muốn xem ngày tốt cho việc gì?
                 </p>
                 <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
@@ -146,12 +146,12 @@ export default function Auspicious() {
               {formData.purpose && (
                 <div className="result-card max-w-xl mx-auto">
                   <div className="flex items-center gap-3 mb-6">
-                    <div className="w-10 h-10 rounded-lg bg-emerald-100 flex items-center justify-center">
-                      <Calendar className="w-5 h-5 text-emerald-600" />
+                    <div className="w-10 h-10 rounded-lg bg-emerald-100 dark:bg-emerald-500/20 flex items-center justify-center">
+                      <Calendar className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
                     </div>
                     <div>
-                      <h3 className="font-bold text-gray-900">Chọn Khoảng Thời Gian</h3>
-                      <p className="text-sm text-gray-500">Hệ thống sẽ tìm các ngày tốt trong khoảng thời gian bạn chọn</p>
+                      <h3 className="font-bold text-gray-900 dark:text-white">Chọn Khoảng Thời Gian</h3>
+                      <p className="text-sm text-gray-500 dark:text-gray-400">Hệ thống sẽ tìm các ngày tốt trong khoảng thời gian bạn chọn</p>
                     </div>
                   </div>
                   
@@ -193,7 +193,7 @@ export default function Auspicious() {
                         min="1900"
                         max="2100"
                       />
-                      <p className="text-xs text-gray-500 mt-1">
+                      <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
                         Nhập năm sinh để xem ngày hợp tuổi
                       </p>
                     </div>
@@ -230,10 +230,10 @@ export default function Auspicious() {
               {/* Result Header */}
               <div className="result-card text-center">
                 <div className="text-4xl mb-4">{selectedPurpose?.emoji}</div>
-                <h2 className="text-2xl font-bold text-gray-900 mb-2">
+                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
                   Ngày Tốt Cho {selectedPurpose?.name}
                 </h2>
-                <p className="text-gray-500">
+                <p className="text-gray-500 dark:text-gray-400">
                   Từ {new Date(result.dateRange.start).toLocaleDateString("vi-VN")} đến {new Date(result.dateRange.end).toLocaleDateString("vi-VN")}
                 </p>
               </div>
@@ -241,12 +241,12 @@ export default function Auspicious() {
               {/* Result Content */}
               <div className="result-card">
                 <div className="result-header">
-                  <div className="result-icon bg-gradient-to-br from-emerald-100 to-teal-100">
-                    <Sparkles className="w-8 h-8 text-emerald-600" />
+                  <div className="result-icon bg-gradient-to-br from-emerald-100 to-teal-100 dark:from-emerald-500/20 dark:to-teal-500/20">
+                    <Sparkles className="w-8 h-8 text-emerald-600 dark:text-emerald-400" />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold text-gray-900">Kết Quả Xem Ngày</h3>
-                    <p className="text-gray-500">Phân tích từ trí tuệ nhân tạo</p>
+                    <h3 className="text-xl font-bold text-gray-900 dark:text-white">Kết Quả Xem Ngày</h3>
+                    <p className="text-gray-500 dark:text-gray-400">Phân tích từ trí tuệ nhân tạo</p>
                   </div>
                 </div>
                 <div className="prose prose-gray max-w-none">
